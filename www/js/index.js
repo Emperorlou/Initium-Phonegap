@@ -8,10 +8,6 @@ var app = {
     },
 
     onDeviceReady: function() {
-        app.receivedEvent('deviceready');
-    },
-
-    receivedEvent: function(id) {
         var ref = window.open('http://www.playinitium.com/login.jsp', '_blank', 'location=no')
     }
 };

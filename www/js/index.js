@@ -14,5 +14,13 @@ var app = {
 
     onDeviceReady: function() {
         //var ref = window.open('http://www.playinitium.com/login.jsp', '_blank', 'location=no')
+    },
+
+    onSettings: function() {
+        window.alert("This should go to Settings")
+    },
+
+    exitFromApp: function() {
+        window.alert("This Should Exit")
     }
 };

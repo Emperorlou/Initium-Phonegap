@@ -21,6 +21,6 @@ var app = {
     },
 
     exitFromApp: function() {
-        window.alert("This Should Exit")
+        navigator.app.exitApp()
     }
 };

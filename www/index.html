@@ -26,22 +26,24 @@
         <meta name="msapplication-tap-highlight" content="no" />
         <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
-        <link rel="stylesheet" type="text/css" href="css/index.css" />
+        <link rel="stylesheet" type="text/css" href="css/MiniUP.css" />
         <title>Initium</title>
     </head>
     <body>
         <div class="app">
-            <div id="deviceready" class="blink">
-                <p class="event listening">Initium Main Menu</p>
+            <div class='main-banner'>
+                <span class='banner-shadowbox'>
+                    <img src='images/banner---start.jpg' border=0 />
+                </span>
             </div>
             <div>
-                <button type="button" onclick="app.onPlayGame()" class="btn">Play Initium</button>
+                <button type="button" onclick="app.onPlayGame()" class="main-button">Play Initium</button>
             </div>
             <div>
-                <button type="button" onclick="app.onSettings()" class="btn">Settings</button>
+                <button type="button" onclick="app.onSettings()" class="main-button">Settings</button>
             </div>
             <div>
-                <button type="button" onclick="app.exitFromApp()" class="btn">Quit Initium</button>
+                <button type="button" onclick="app.exitFromApp()" class="main-button">Quit Initium</button>
             </div>
         </div>
         <script type="text/javascript" src="cordova.js"></script>

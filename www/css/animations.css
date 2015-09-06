@@ -1,0 +1,16 @@
+#menu {
+    position: absolute;
+}
+
+#menu.out {
+    top: 100%;
+    animation-name: swoop-out;
+    animation-duration: 1s;
+}
+
+/* The animation code */
+@keyframes swoop-out {
+    from { top: 0%;}
+    to {top: 150%;}
+    animation-timing-function: ease-in;
+}

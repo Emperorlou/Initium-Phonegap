@@ -22,7 +22,9 @@ var app = {
     },
 
     onSettings: function() {
-        window.alert("This should go to Settings")
+        //window.alert("This should go to Settings")
+        document.getElementById('menu').className = 'out';
+        //window.location = "settings.html"
     },
 
     exitFromApp: function() {

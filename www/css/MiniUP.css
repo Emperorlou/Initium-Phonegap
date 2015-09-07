@@ -179,7 +179,8 @@ hr:after {
 
 .main-banner
 {
-	width:728px;
+	background-size:cover;
+    width:728px;
 	margin:0px;
 	margin-left:1px;
 	height:240px;
@@ -190,7 +191,8 @@ hr:after {
 
 .banner-shadowbox
 {
-	float: left;
+	background-size:cover;
+    float: left;
 	margin-top: 14px;
 	max-width: 728px;
 	min-height: 211px;

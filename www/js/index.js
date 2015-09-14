@@ -11,6 +11,7 @@ var app = {
         //var ref = window.location = "http://www.playinitium.com/login.jsp"
         var ref = window.open('http://www.playinitium.com/main.jsp', '_blank', 'location=no,');
         ref.resizeTo(window.innerHeight, window.innerWidth);
+        ref.getSettings().setDisplayZoomControls(false);
     },
 
     onDeviceReady: function() {

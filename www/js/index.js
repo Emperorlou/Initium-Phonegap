@@ -9,9 +9,8 @@ var app = {
 
     onPlayGame: function() {
         //var ref = window.location = "http://www.playinitium.com/login.jsp"
-        var ref = window.open('http://www.playinitium.com/main.jsp', '_blank', 'location=no,');
-        ref.resizeTo(window.innerHeight, window.innerWidth);
-        ref.getSettings().setDisplayZoomControls(false);
+        var main_window = window.open('http://www.playinitium.com/main.jsp', '_system', 'location=no,zoom=no');
+        main_window.resizeTo(window.innerHeight, window.innerWidth);
     },
 
     onDeviceReady: function() {

@@ -4,8 +4,9 @@
     <description>
         Initium is a very simple MMORPG about fighting monsters and gathering loot in a shared world!
     </description>
-    <author email="CptSpaceToaster@gmail.com">
+    <author email="CptSpaceToaster@gmail.com, cpwinchcombe@gmail.com">
         CptSpaceToaster
+        TuathaDannan
     </author>
     <content src="index.html" />
     <preference name="permissions" value="none" />
@@ -82,4 +83,7 @@
         <allow-intent href="itms-apps:*" />
     </platform>
     <engine name="android" spec="^4.0.2" />
+    <preference name="xwalkVersion" value="14+" />
+    <preference name="xwalkCommandLine" value="--disable-pull-to-refresh-effect" />
+    <preference name="xwalkMode" value="embedded" />
 </widget>

@@ -9,23 +9,18 @@ var app = {
 
     onPlayGame: function() {
         //var ref = window.location = "http://www.playinitium.com/login.jsp"
-        var ref = window.open('http://www.playinitium.com/login.jsp', '_blank', 'location=no,')
-        ref.resizeTo(window.innerHeight, window.innerWidth)
+       // var ref = window.open('http://www.playinitium.com/main.jsp', '_self', 'location=no,');
     },
 
     onDeviceReady: function() {
-        //var ref = window.open('http://www.playinitium.com/login.jsp', '_blank', 'location=no')
-    },
-
-    changeScreenSize: function(w,h){
-        window.resizeTo (w,h)
+        //var ref = window.open('http://www.playinitium.com/login.jsp', '_blank', 'location=no');
     },
 
     onSettings: function() {
-        window.alert("This should go to Settings")
+        window.alert("This should go to Settings");
     },
 
     exitFromApp: function() {
-        navigator.app.exitApp()
+        navigator.app.exitApp();
     }
 };

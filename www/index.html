@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <!--
     Copyright (c) 2012-2014 Adobe Systems Incorporated. All rights reserved.
 
@@ -20,36 +20,45 @@
     under the License.
 -->
 <html>
-    <head>
-        <meta charset="utf-8" />
-        <meta name="format-detection" content="telephone=no" />
-        <meta name="msapplication-tap-highlight" content="no" />
-        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
-        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
-        <link rel="stylesheet" type="text/css" href="css/MiniUP.css" />
-        <title>Initium</title>
-    </head>
-    <body>
-        <div class="app">
-            <div class='main-banner'>
-                <span class='banner-shadowbox'>
-                    <img src='images/banner---start.jpg' border=0 />
-                </span>
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+    <!--<meta name="viewport" content="width=device-width, height=device-height, target-densitydpi=device-dpi" />-->
+    <link rel="stylesheet" type="text/css" href="css/MiniUP.css" />
+    <title>Initium</title>
+</head>
+<body>
+    <div class="app">
+        <div class='main-page'>
+            <div class='main-banner-container'>
+                <div class='main-banner'>
+                    <span class='banner-shadowbox'>
+                       <!--  <img src='images/banner---start.jpg' border=0 /> -->
+                    </span>
+                </div>
             </div>
-            <div>
-                <a onclick="app.onPlayGame()" class="main-button">Play Initium</a>
-            </div>
-            <div>
+            <div style="text-align:center">
+                <br>
+                <hr />
+                <a href="http://www.playinitium.com/main.jsp" class="main-button"><h1>Play Initium</h1></a>
+                <!--<a onclick="app.onPlayGame()" class="main-button">Play Initium</a>-->
+                <hr />
+                <br>
+            <!--<div>
                 <a onclick="app.onSettings()" class="main-button">Settings</a>
-            </div>
-            <div>
+            </div>-->
                 <a onclick="app.exitFromApp()" class="main-button">Quit Initium</a>
             </div>
+            <hr />
         </div>
-        <script type="text/javascript" src="cordova.js"></script>
-        <script type="text/javascript" src="js/index.js"></script>
-        <script type="text/javascript">
-            app.initialize();
-        </script>
-    </body>
+    </div>
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript">
+        app.initialize();
+    </script>
+</body>
 </html>

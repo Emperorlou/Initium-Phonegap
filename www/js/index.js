@@ -9,7 +9,7 @@ var app = {
 
     onPlayGame: function() {
         //var ref = window.location = "http://www.playinitium.com/login.jsp"
-        var ref = window.open('http://www.playinitium.com/main.jsp', '_self', 'location=no,');
+       // var ref = window.open('http://www.playinitium.com/main.jsp', '_self', 'location=no,');
     },
 
     onDeviceReady: function() {

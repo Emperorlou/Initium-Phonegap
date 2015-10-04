@@ -43,7 +43,6 @@
     <gap:plugin name="org.apache.cordova.network-information" source='npm'/>
     <gap:plugin name="org.apache.cordova.splashscreen" source='npm'/>
     <gap:plugin name="org.apache.cordova.vibration" source='npm'/>
-    <gap:plugin name="org.crosswalk.engine" version='1.3.0' source='pgb'/>
     <icon src="icon.png" />
     <icon gap:platform="android" gap:qualifier="ldpi" src="www/res/icon/android/icon-36-ldpi.png" />
     <icon gap:platform="android" gap:qualifier="mdpi" src="www/res/icon/android/icon-48-mdpi.png" />

@@ -29,34 +29,45 @@
     <!--<meta name="viewport" content="width=device-width, height=device-height, target-densitydpi=device-dpi" />-->
     <link rel="stylesheet" type="text/css" href="css/MiniUP.css" />
     <title>Initium</title>
+    
+    <script type="text/javascript" src="js/jquery.min.js"></script>    
+    <script type="text/javascript">
+    	function btnPlayInitium()
+    	{
+    		var app = $("body").html("");
+    		app.append("<iframe src='https://www.playinitium.com/main.jsp' style='position:fixed; top:0px; left:0px; bottom:0px; right:0px; width:100%; height:100%; border:none; margin:0; padding:0; overflow:hidden; z-index:999999;''/>");
+    	}
+    </script>
 </head>
 <body>
     <div class="app">
         <div class='main-page'>
-          <!--  <img class='main-page-banner-image' src='css/images/banner-backing.jpg' border=0/>
 
-            <div class='main-banner-container'><img class='main-page-banner-image' src='css/images/banner-backing.jpg' border=0/>
+			<div class='no-loggedin-header'></div>
 
-                <div class='main-banner'><img class='main-page-banner-image' src='images/banner-start.jpg' border=0/> Hyphens have been deleted please check site banner code for details
+			<img class="main-page-banner-image" src="images/banner-backing.jpg" border="0">
+			<div class="main-banner-container">
+				<img class="main-page-banner-image" src="images/banner-backing.jpg" border="0">
+				<div class="main-banner">
+					<img class="main-page-banner-image" src="images/banner---start.jpg" border="0">
+					<div class="banner-shadowbox" style="background: url('images/banner---start.jpg') no-repeat center; background-size:contain;">
+						<h1 style="text-align: center; font-size: 60px">INITIUM</h1>
+					</div>
+				</div>
+			</div>
 
-                    <div class='banner-shadowbox'>
-                         style="background: url('images/banner-start.jpg') no-repeat center / contain;"></div> -->
-                
-            
-            </div>
+
+		</div>
             <div style="text-align:center">
                 <br>
-                <hr />
-                <a href="http://www.playinitium.com/main.jsp" class="main-button">Play Initium</a>
-                <a onclick="app.onPlayGame()" class="main-button">Play Initium</a>
-                <hr />
                 <br>
-            <div>
+                <br>
+                <a onclick="btnPlayInitium()" class="main-button">Play Initium</a>
+                <br>
                 <a onclick="app.onSettings()" class="main-button">Settings</a>
-            </div>
+                <br>
                 <a onclick="app.exitFromApp()" class="main-button">Quit Initium</a>
             </div>
-            <hr />
         </div>
     </div>
     <script type="text/javascript" src="cordova.js"></script>

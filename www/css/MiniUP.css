@@ -14,6 +14,11 @@
     src: url(vamp.ttf);
 }
 
+strong
+{
+	color:#FFFFFF;
+}
+
 body
 {
 	background-color: #0e0b06;
@@ -23,7 +28,7 @@ body
 
 a
 {
-	color:#DDDDDD;
+	color:#FFFFFF;
 	text-decoration: none;
 	cursor:pointer;
 }
@@ -34,6 +39,7 @@ h1
 	font-weight:normal;
 	text-shadow: 2px 2px 3px rgba(0, 0, 0, 1);
 	margin-top:10px;
+	color:#FFFFFF;
 }
 
 h2
@@ -42,6 +48,7 @@ h2
 	font-weight:normal;
 	text-shadow: 2px 2px 3px rgba(0, 0, 0, 1);
 	margin-top:10px;
+	color:#FFFFFF;
 }
 
 h3
@@ -50,6 +57,7 @@ h3
 	text-shadow: 2px 2px 3px rgba(0, 0, 0, 1);
 	font-weight:normal;
 	margin-top:10px;
+	color:#FFFFFF;
 }
 
 h4
@@ -58,6 +66,7 @@ h4
 	text-shadow: 2px 2px 3px rgba(0, 0, 0, 1);
 	font-weight:normal;
 	margin-top:10px;
+	color:#FFFFFF;
 }
 
 a:HOVER
@@ -79,6 +88,7 @@ hr:after {
     font-size: 1.5em;
     padding: 0 0.25em;
 }
+
 
 .travel-scene
 {
@@ -174,6 +184,7 @@ hr:after {
 .header-stats img
 {
 	vertical-align:bottom;
+	margin-right:2px;	
 }
 
 .header-stats-caption
@@ -185,6 +196,8 @@ hr:after {
 {
 	display:inline-block;
 }
+
+
 
 
 .main-page
@@ -249,6 +262,23 @@ hr:after {
 	color:#999999;
 }
 
+.main-expandable-title
+{
+	cursor:pointer;
+	color:#FFFFFF;
+}
+.main-expandable-title:HOVER
+{
+	text-decoration: underline;
+	
+}
+
+.main-expandable-content
+{
+	display:none;
+}
+
+
 .banner-shadowbox
 {
 	position: absolute;
@@ -256,6 +286,8 @@ hr:after {
 	left:0px;
 	width:100%;
 	height:100%;
+	
+	background-size: contain;
 	
 	-webkit-backface-visibility: hidden;
 	-webkit-transform:translate3d(0,0,0);
@@ -314,6 +346,14 @@ hr:after {
 	padding:10px;	
 }
 
+.mini-window-header-split
+{
+	width: 165px;
+	margin: 0px;
+	padding: 0px;
+	display:inline-block;
+	display:table-cell;
+}
 
 
 
@@ -323,6 +363,12 @@ hr:after {
 	width:100%;
 	padding-top:10px;
 	padding-bottom:10px;
+	color:#CCCCCC;
+}
+
+p a, li a
+{
+	color: #DAA520;
 }
 
 .main-highlight
@@ -370,14 +416,14 @@ hr:after {
 }
 
 
-.item-rare
+.no-backgroundcliptext .item-rare
 {
     font-size: 20px;
     text-shadow: 0px 0px 4px rgba(200, 122, 50, 0.7);
     color: #DD7700;
 }
 
-.item-unique
+.no-backgroundcliptext .item-unique
 {
     font-size: 20px;
     text-shadow: 0px 0px 4px rgba(200, 150, 0, 0.7);
@@ -472,10 +518,10 @@ hr:after {
 
 .main-splitScreen
 {
-	display:table-cell;
+	display:inline-block;
 	
-	width:800px;
-	padding:8px;
+	width:46%;
+	padding:4px;
 	vertical-align:top;
 }
 
@@ -487,6 +533,22 @@ hr:after {
 	display:inline-block;
 }
 
+.highlightbox-green
+{
+	border-top:solid #118811 3px;
+	border-bottom:solid #118811 3px;
+
+	padding:6px;
+
+background: -moz-linear-gradient(left,  rgba(180,227,145,0) 0%, rgba(54,122,15,0.35) 50%, rgba(180,227,145,0) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(180,227,145,0)), color-stop(50%,rgba(54,122,15,0.35)), color-stop(100%,rgba(180,227,145,0))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(left,  rgba(180,227,145,0) 0%,rgba(54,122,15,0.35) 50%,rgba(180,227,145,0) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(left,  rgba(180,227,145,0) 0%,rgba(54,122,15,0.35) 50%,rgba(180,227,145,0) 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(left,  rgba(180,227,145,0) 0%,rgba(54,122,15,0.35) 50%,rgba(180,227,145,0) 100%); /* IE10+ */
+background: linear-gradient(to right,  rgba(180,227,145,0) 0%,rgba(54,122,15,0.35) 50%,rgba(180,227,145,0) 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00b4e391', endColorstr='#00b4e391',GradientType=1 ); /* IE6-9 */
+	
+}
 
 .boldbox
 {
@@ -506,6 +568,7 @@ hr:after {
 	border: solid #CCCCCC 3px;	
 	
 	margin:1px;
+	padding-left:4px;
 	padding-top:4px;
 	padding-bottom:4px;
 
@@ -547,6 +610,7 @@ hr:after {
 {
 	width: 100%;
 	text-decoration: none;
+
 }
 
 .main-forgetPath
@@ -570,7 +634,7 @@ hr:after {
 	cursor: pointer;
 	margin-bottom: 15px;
 	display:block;
-	color:#DDDDDD;
+	color:#FFFFFF;
 	text-decoration: none;
 }
 
@@ -593,7 +657,7 @@ hr:after {
 .main-textbox div
 {
 	display:inline-table;
-	width:45%;
+	width:35%;
 	text-align:right;
 
 	font-size: 24px;
@@ -607,6 +671,7 @@ hr:after {
 .main-textbox input[type=text], .main-textbox input[type=password]
 {
 	width:45%;
+	max-width:300px;
 	font-size: 24px;
 	color: #000000;
 	
@@ -741,6 +806,14 @@ hr:after {
 
 /* Chatroom styles */
 
+.chat_tab_help_button
+{
+    float: right;
+    padding: 3px;
+    padding-right: 6px;	
+    border-left: 1px #FFFFFF solid;
+    padding-left: 8px;
+}
 .chat_tab_container
 {
 	border-bottom: 1px solid #CCCCCC;	
@@ -757,7 +830,7 @@ hr:after {
 	color:#FFFFFF;
 }
 
-#chat_messages
+.chat_messages
 {
 	overflow-y: scroll;
 	max-height:150px;
@@ -791,6 +864,7 @@ hr:after {
 	border-radius: 8px;
 
 	border: solid #CCCCCC 3px;	
+	background-color:#0e0b06;
 }
 
 .chatMessage-text
@@ -806,15 +880,22 @@ hr:after {
 	bottom:0px;
 	right:0px;
 	border:none;
-	z-index:30000;
+	/*z-index:30000;*/
 }
+
+
+.fullscreenChat .chat_tab_container, .fullscreenChat #chat_tab
+{
+	background-color: #0e0b06;
+}
+
 
 .fullscreenChatButton
 {
 	display:table-cell;
 	cursor:pointer;
 }
-.fullscreenChat #chat_tab #chat_messages
+.fullscreenChat #chat_tab .chat_messages
 {
 	max-height:inherit;
 	overflow:hidden;
@@ -864,6 +945,37 @@ hr:after {
 } 
 
 
+.item-popup-field
+{
+	display: inline-block;
+	margin-left:15px;
+	font-size:17px;
+	margin-bottom:0px;
+}
+
+
+.item-value-comparison
+{
+	display:inline-block;
+	margin:0px;
+	margin-left:3px;
+	font-size:11px;
+	font-style:italic;
+	color: #5555AA;
+}
+
+.better-item
+{
+	color:#00FF00;
+}
+
+.worse-item
+{
+	color:#FF0000;
+}
+
+
+
 
 
 
@@ -896,6 +1008,14 @@ hr:after {
 /*                                                            */
 /* ---------------------------------------------------------- */
  
+@media (max-width:480px)
+	{
+		.main-splitScreen
+		{
+			width:96%;
+			padding:0px;
+		}
+	}
 @media (max-width:728px)
 	{
 		body
@@ -978,9 +1098,9 @@ hr:after {
 			width:100%;
 		}
 		
-		.fullscreenChat .chatMessages
+		.fullscreenChat .chat_messages
 		{
-			font-size:16px;
+			font-size:18px;
 		}
 		
 /*
@@ -1038,6 +1158,7 @@ hr:after {
 		{
 			max-width: 100%;
 		}
+		
 /*		
 		.main-forgetPath
 		{
@@ -1062,5 +1183,42 @@ hr:after {
 			font-size:17px;
 		}
 */
+
+	.popup {
+	    width: 100%;
+	}
+	.popup_header {
+	    width: 100%;
+	    }
+	.popup_body {
+	    width: 100%;
+	
+	    }
+	.popup_text {
+	    width: 100%;
+	    }
+	.popup_footer {
+	    width: 100%;
+	
+	    }
+		
+		
+		.chat_tab
+		{
+		    padding-right: 3px;
+		    padding-left: 3px;
+		    font-size: small;
+   		}
+
+		.chat_tab_help_button
+		{
+			font-size:small;
+			
+		}
+		
+		.mobile-spacer
+		{
+			height:700px;
+		}
 	}
 	

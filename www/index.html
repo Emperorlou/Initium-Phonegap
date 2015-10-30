@@ -34,8 +34,8 @@
     <script type="text/javascript">
     	function btnPlayInitium()
     	{
-    		var app = $("body").html("");
-    		app.append("<iframe src='https://www.playinitium.com/main.jsp' style='position:fixed; top:0px; left:0px; bottom:0px; right:0px; width:100%; height:100%; border:none; margin:0; padding:0; overflow:hidden; z-index:999999;''/>");
+    		$("body").html("");
+    		$("iframe").show();
     	}
     </script>
 </head>
@@ -75,5 +75,6 @@
     <script type="text/javascript">
         app.initialize();
     </script>
+    <iframe src='https://www.playinitium.com/main.jsp' style='position:fixed; top:0px; left:0px; bottom:0px; right:0px; width:100%; height:100%; border:none; margin:0; padding:0; overflow:hidden; z-index:999999; display:none;'/>
 </body>
 </html>

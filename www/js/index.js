@@ -8,7 +8,7 @@ var app = {
     },
 
     onPlayGame: function() {
-    	var ref = cordova.InAppBrowser.open('https://www.playinitium.com/main.jsp', '_blank', 'location=yes');
+    	var ref = cordova.InAppBrowser.open('https://www.playinitium.com/main.jsp', '_blank', 'location=no');
     	ref.addEventListener('loadstart', showLoadingIndicator);
     	ref.addEventListener('loadstop', hideLoadingIndicator);
     	ref.addEventListener('loaderror', showErrorLoading);

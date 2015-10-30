@@ -35,13 +35,16 @@
     	function btnPlayInitium()
     	{
     		//$("body").html("");
-    		$("app").load("https://www.playinitium.com/main.jsp");
+    		$("iframe").show();
+    		//$("iframe").attr("src", "https://www.playinitium.com/main.jsp");
     	}
     </script>
 </head>
 <body>
     <div class="app">
-    <!-- <iframe src='https://www.playinitium.com/main.jsp' />-->
+    <iframe src='https://www.playinitium.com/main.jsp'>
+    	iframes are not supported. Please report this error.
+    </iframe>
     <!--style='position:fixed; top:0px; left:0px; bottom:0px; right:0px; width:100%; height:100%; border:none; margin:0; padding:0; overflow:hidden; z-index:999999; '-->
         <div class='main-page'>
 
@@ -76,6 +79,7 @@
     <script type="text/javascript" src="js/index.js"></script>
     <script type="text/javascript">
         app.initialize();
+        $("iframe").hide();
     </script>
 </body>
 </html>

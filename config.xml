@@ -4,8 +4,9 @@
     <description>
         Initium is a very simple MMORPG about fighting monsters and gathering loot in a shared world!
     </description>
-    <author email="CptSpaceToaster@gmail.com">
+    <author email="CptSpaceToaster@gmail.com, cpwinchcombe@gmail.com">
         CptSpaceToaster
+        TuathaDannan
     </author>
     <content src="index.html" />
     <preference name="permissions" value="none" />
@@ -14,18 +15,19 @@
     <preference name="fullscreen" value="true" />
     <preference name="webviewbounce" value="true" />
     <preference name="prerendered-icon" value="true" />
-    <preference name="stay-in-webview" value="false" />
+    <preference name="stay-in-webview" value="true" />
     <preference name="ios-statusbarstyle" value="black-opaque" />
     <preference name="detect-data-types" value="true" />
     <preference name="exit-on-suspend" value="false" />
     <preference name="show-splash-screen-spinner" value="true" />
     <preference name="auto-hide-splash-screen" value="true" />
     <preference name="disable-cursor" value="false" />
-    <preference name="android-minSdkVersion" value="10" />
+    <preference name="android-minSdkVersion" value="14" />
     <preference name="android-installLocation" value="auto" />
-    <gap:plugin name="cordova-plugin-inappbrowser" source="npm" />
-    <gap:plugin name="org.apache.cordova.media" />
-    <gap:plugin name="org.apache.cordova.vibration" />
+    <preference name='phonegap-version' value='cli-5.1.1' />
+    <gap:plugin name="org.apache.cordova.inappbrowser" source='npm'/>
+    <gap:plugin name="org.apache.cordova.splashscreen" source='npm'/>
+    <gap:plugin name="org.crosswalk.engine" source='pgb'/>
     <icon src="icon.png" />
     <icon gap:platform="android" gap:qualifier="ldpi" src="www/res/icon/android/icon-36-ldpi.png" />
     <icon gap:platform="android" gap:qualifier="mdpi" src="www/res/icon/android/icon-48-mdpi.png" />
@@ -52,7 +54,7 @@
     <gap:splash gap:platform="ios" height="768" src="www/res/screen/ios/screen-ipad-landscape.png" width="1024" />
     <gap:splash gap:platform="winphone" src="www/res/screen/windows-phone/screen-portrait.jpg" />
     <access origin="*" />
-    <plugin name="cordova-plugin-whitelist" version="1" />
+    <plugin name="cordova-plugin-whitelist" version="1" source='npm'/>
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
     <allow-intent href="tel:*" />

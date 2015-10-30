@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <!--
     Copyright (c) 2012-2014 Adobe Systems Incorporated. All rights reserved.
 
@@ -25,40 +25,63 @@
     <meta name="format-detection" content="telephone=no" />
     <meta name="msapplication-tap-highlight" content="no" />
     <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
-    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+    <meta name="viewport" content="width=device-width"/> 
     <!--<meta name="viewport" content="width=device-width, height=device-height, target-densitydpi=device-dpi" />-->
     <link rel="stylesheet" type="text/css" href="css/MiniUP.css" />
     <title>Initium</title>
+    
+    <script type="text/javascript" src="js/jquery.min.js"></script>    
+    <script type="text/javascript">
+    	function btnPlayInitium()
+    	{
+    		//$("body").html("");
+    		$("iframe").show();
+    		//$("iframe").attr("src", "https://www.playinitium.com/main.jsp");
+    	}
+    </script>
 </head>
 <body>
     <div class="app">
+    <!--
+    <iframe src='https://www.playinitium.com/main.jsp'>
+    	iframes are not supported. Please report this error.
+    </iframe>
+    	style='position:fixed; top:0px; left:0px; bottom:0px; right:0px; width:100%; height:100%; border:none; margin:0; padding:0; overflow:hidden; z-index:999999; '
+    -->
         <div class='main-page'>
-            <div class='main-banner-container'>
-                <div class='main-banner'>
-                    <span class='banner-shadowbox'>
-                       <!--  <img src='images/banner---start.jpg' border=0 /> -->
-                    </span>
-                </div>
-            </div>
+
+			<div class='no-loggedin-header'></div>
+
+			<img class="main-page-banner-image" src="images/banner-backing.jpg" border="0">
+			<div class="main-banner-container">
+				<img class="main-page-banner-image" src="images/banner-backing.jpg" border="0">
+				<div class="main-banner">
+					<img class="main-page-banner-image" src="images/banner---start.jpg" border="0">
+					<div class="banner-shadowbox" style="background: url('images/banner---start.jpg') no-repeat center; background-size:contain;">
+						<h1 style="text-align: center; font-size: 60px">INITIUM</h1>
+					</div>
+				</div>
+			</div>
+
+
+		</div>
             <div style="text-align:center">
                 <br>
-                <hr />
-                <a href="http://www.playinitium.com/main.jsp" class="main-button"><h1>Play Initium</h1></a>
-                <!--<a onclick="app.onPlayGame()" class="main-button">Play Initium</a>-->
-                <hr />
                 <br>
-            <!--<div>
+                <br>
+                <a href='https://www.playinitium.com/main.jsp' class="main-button">Play Initium</a>
+                <br>
                 <a onclick="app.onSettings()" class="main-button">Settings</a>
-            </div>-->
+                <br>
                 <a onclick="app.exitFromApp()" class="main-button">Quit Initium</a>
             </div>
-            <hr />
         </div>
     </div>
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
     <script type="text/javascript">
         app.initialize();
+        $("iframe").hide();
     </script>
 </body>
 </html>

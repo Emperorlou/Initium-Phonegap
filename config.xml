@@ -25,10 +25,12 @@
     <preference name="android-minSdkVersion" value="14" />
     <preference name="android-installLocation" value="auto" />
     <preference name='phonegap-version' value='cli-5.1.1' />
+
     <gap:plugin name="org.apache.cordova.inappbrowser" source='npm'/>
     <gap:plugin name="org.apache.cordova.splashscreen" source='npm'/>
     <gap:plugin name="org.crosswalk.engine" source='pgb'/> 
-    <gap:plugin name="com.shoety.cordova.plugin.inappbrowserxwalk" source="npm"/>
+    <gap:plugin name="cordova-plugin-crosswalk-webview" source='npm'/>
+    <!-- <gap:plugin name="com.shoety.cordova.plugin.inappbrowserxwalk" source="npm"/> -->
     <icon src="icon.png" />
     <icon gap:platform="android" gap:qualifier="ldpi" src="www/res/icon/android/icon-36-ldpi.png" />
     <icon gap:platform="android" gap:qualifier="mdpi" src="www/res/icon/android/icon-48-mdpi.png" />

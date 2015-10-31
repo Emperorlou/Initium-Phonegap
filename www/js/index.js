@@ -10,6 +10,7 @@ var app = {
     onPlayGame: function() {
     	showLoadingIndicator();
     	var ref = window.open('https://www.playinitium.com/main.jsp', '_self', 'location=no');
+    	ref.getSettings().setDisplayZoomControls(false);
     	ref.addEventListener('loadstart', showLoadingIndicator);
     	ref.addEventListener('loadstop', hideLoadingIndicator);
     	ref.addEventListener('loaderror', showErrorLoading);

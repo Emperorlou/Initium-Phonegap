@@ -1,4 +1,7 @@
 var app = {
+	ref:null,
+	deviceReady:false,
+	
     initialize: function() {
         this.bindEvents();
     },
@@ -8,16 +11,20 @@ var app = {
     },
 
     onPlayGame: function() {
-    	showLoadingIndicator();
-    	var ref = window.open('https://www.playinitium.com/main.jsp', '_self', 'location=no');
-    	ref.getSettings().setDisplayZoomControls(false);
-    	ref.addEventListener('loadstart', showLoadingIndicator);
-    	ref.addEventListener('loadstop', hideLoadingIndicator);
-    	ref.addEventListener('loaderror', showErrorLoading);
+    	if (deviceReady)
+    	{
+	    	showLoadingIndicator();
+	    	this.ref = window.open('https://www.playinitium.com/main.jsp', '_self', 'location=no,hidden=yes');
+	    	this.ref.getSettings().setDisplayZoomControls(false);
+	    	this.ref.addEventListener('loadstop', hideLoadingIndicator);
+	    	this.ref.addEventListener('loaderror', showErrorLoading);
+    	}
+    	else
+    		alert("Game is still initializing, please wait...");
     },
 
     onDeviceReady: function() {
-        //var ref = window.open('http://www.playinitium.com/login.jsp', '_blank', 'location=no');
+        this.deviceReady = true;
     },
 
     onSettings: function() {
@@ -37,6 +44,7 @@ function showLoadingIndicator(event)
 
 function hideLoadingIndicator(event)
 {
+	app.ref.show();
 	$(".loading-indicator").remove();
 }
 

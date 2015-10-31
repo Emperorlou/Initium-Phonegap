@@ -27,6 +27,7 @@
     <preference name='phonegap-version' value='cli-5.1.1' />
 
     <gap:plugin name="cordova-plugin-whitelist" source='npm'/>
+    <gap:plugin name="org.crosswalk.engine" source='pgb'/> 
 
 	<allow-intent href="http://www.playinitium.com*"/>
 	<allow-intent href="https://www.playinitium.com*"/>
@@ -39,7 +40,6 @@
     <!-- 
     <gap:plugin name="org.apache.cordova.inappbrowser" source='npm'/>
     <gap:plugin name="org.apache.cordova.splashscreen" source='npm'/>
-    <gap:plugin name="org.crosswalk.engine" source='pgb'/> 
     <gap:plugin name="cordova-plugin-crosswalk-webview" source='npm'/>
     <gap:plugin name="com.shoety.cordova.plugin.inappbrowserxwalk" source="npm"/> 
     -->

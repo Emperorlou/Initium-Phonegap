@@ -8,7 +8,8 @@ var app = {
     },
 
     onPlayGame: function() {
-    	var ref = cordova.InAppBrowser.open('https://www.playinitium.com/main.jsp', '_blank', 'location=no');
+    	showLoadingIndicator();
+    	var ref = window.open('https://www.playinitium.com/main.jsp', '_self', 'location=no');
     	ref.addEventListener('loadstart', showLoadingIndicator);
     	ref.addEventListener('loadstop', hideLoadingIndicator);
     	ref.addEventListener('loaderror', showErrorLoading);
@@ -30,7 +31,7 @@ var app = {
 
 function showLoadingIndicator(event)
 {
-	$("body").append("<div class='loading-indicator'></div>");
+	$("body").append("<div class='loading-indicator'><h1>Connecting to server...</h1></div>");
 }
 
 function hideLoadingIndicator(event)

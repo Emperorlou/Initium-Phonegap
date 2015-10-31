@@ -13,3 +13,4 @@ hooks/*
 plugins/*
 cordova*
 www/res/*
+/.project

@@ -14,13 +14,13 @@ var app = {
 
     onPlayGame: function() {
 //    	this.deviceReady = true;
-    	if (this.deviceReady)
+    	if (app.deviceReady)
     	{
 	    	showLoadingIndicator();
-	    	this.ref = window.open('https://www.playinitium.com/main.jsp', '_self', 'location=no,hidden=yes');
-	    	this.ref.getSettings().setDisplayZoomControls(false);
-	    	this.ref.addEventListener('loadstop', hideLoadingIndicator);
-	    	this.ref.addEventListener('loaderror', showErrorLoading);
+	    	app.ref = window.open('https://www.playinitium.com/main.jsp', '_self', 'location=no,hidden=yes');
+	    	app.ref.getSettings().setDisplayZoomControls(false);
+	    	app.ref.addEventListener('loadstop', hideLoadingIndicator);
+	    	app.ref.addEventListener('loaderror', showErrorLoading);
 	    	alert("started game, listening tp compete ");
     	}
     	else
@@ -29,7 +29,7 @@ var app = {
 
     onDeviceReady: function() {
     	alert("device ready fired");
-        this.deviceReady = true;
+        app.deviceReady = true;
     },
 
     onSettings: function() {
@@ -49,6 +49,7 @@ function showLoadingIndicator(event)
 
 function hideLoadingIndicator(event)
 {
+	alert(app.ref);
 	app.ref.show();
 	$(".loading-indicator").remove();
 }

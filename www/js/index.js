@@ -11,7 +11,7 @@ var app = {
     },
 
     onPlayGame: function() {
-    	this.deviceReady = true;
+//    	this.deviceReady = true;
     	if (this.deviceReady)
     	{
 	    	showLoadingIndicator();

@@ -7,7 +7,9 @@ var app = {
     },
 
     bindEvents: function() {
+    	alert("binding event");
         document.addEventListener('deviceready', this.onDeviceReady, false);
+    	alert("binding event complete");
     },
 
     onPlayGame: function() {
@@ -19,12 +21,14 @@ var app = {
 	    	this.ref.getSettings().setDisplayZoomControls(false);
 	    	this.ref.addEventListener('loadstop', hideLoadingIndicator);
 	    	this.ref.addEventListener('loaderror', showErrorLoading);
+	    	alert("started game, listening tp compete ");
     	}
     	else
     		alert("Game is still initializing, please wait...");
     },
 
     onDeviceReady: function() {
+    	alert("device ready fired");
         this.deviceReady = true;
     },
 

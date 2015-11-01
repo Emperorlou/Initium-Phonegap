@@ -18,10 +18,10 @@ var app = {
     	{
 	    	showLoadingIndicator();
 	    	app.ref = window.open('https://www.playinitium.com/main.jsp', '_self', 'location=no,hidden=yes');
-	    	app.ref.getSettings().setDisplayZoomControls(false);
+	    	alert("started game");
 	    	app.ref.addEventListener('loadstop', hideLoadingIndicator);
 	    	app.ref.addEventListener('loaderror', showErrorLoading);
-	    	alert("started game, listening tp compete ");
+	    	alert("listening to events  compete ");
     	}
     	else
     		alert("Game is still initializing, please wait...");
@@ -44,6 +44,7 @@ var app = {
 
 function showLoadingIndicator(event)
 {
+	alert ("load start fired ");
 	$("body").append("<div class='loading-indicator'><h1>Connecting to server...</h1></div>");
 }
 

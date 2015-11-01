@@ -11,7 +11,8 @@ var app = {
     },
 
     onPlayGame: function() {
-    	if (deviceReady)
+    	this.deviceReady = true;
+    	if (this.deviceReady)
     	{
 	    	showLoadingIndicator();
 	    	this.ref = window.open('https://www.playinitium.com/main.jsp', '_self', 'location=no,hidden=yes');

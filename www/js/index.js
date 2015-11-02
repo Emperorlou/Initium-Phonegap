@@ -50,5 +50,6 @@ function hideLoadingIndicator(event)
 
 function showErrorLoading(event)
 {
+	app.ref.close();
 	alert("Unable to connect to server: "+event.message);
 }

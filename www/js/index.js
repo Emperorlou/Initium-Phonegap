@@ -11,7 +11,6 @@ var app = {
     },
 
     onPlayGame: function() {
-//    	this.deviceReady = true;
     	if (app.deviceReady)
     	{
 	    	showLoadingIndicator();
@@ -50,6 +49,7 @@ function hideLoadingIndicator(event)
 
 function showErrorLoading(event)
 {
+	app.ref.hide();
 	app.ref.close();
 	alert("Unable to connect to server: "+event.message);
 }

@@ -8,6 +8,7 @@ var app = {
 
     bindEvents: function() {
         document.addEventListener('deviceready', this.onDeviceReady, false);
+        document.addEventListener('menubutton', shutdownGame, false);
     },
 
     onPlayGame: function() {
@@ -36,6 +37,17 @@ var app = {
 };
 
 
+function shutdownGame(event)
+{
+	if (app.ref!=null)
+	{
+		app.ref.hide();
+		app.ref.close();
+	}
+	
+	$(".loading-indicator").remove();
+}
+
 function showLoadingIndicator(event)
 {
 	$("body").append("<div class='loading-indicator'><h1>Connecting to server...</h1></div>");
@@ -49,7 +61,7 @@ function hideLoadingIndicator(event)
 
 function showErrorLoading(event)
 {
-	app.ref.hide();
-	app.ref.close();
+	shutdownGame(event);
+	
 	alert("Unable to connect to server: "+event.message);
 }

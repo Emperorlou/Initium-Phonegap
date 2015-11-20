@@ -27,9 +27,10 @@
     <preference name='phonegap-version' value='cli-5.1.1' />
     <preference name="SplashScreen" value="icon.png" />
 
-	<!--
-	NOT USING THESE RIGHT NOW 
     <gap:plugin name="org.apache.cordova.inappbrowser" source='npm'/>
+    <!--
+	NOT USING THESE RIGHT NOW 
+
     <gap:plugin name="org.apache.cordova.splashscreen" source='npm'/>
  	-->
 

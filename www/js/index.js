@@ -2,6 +2,13 @@ var app = {
 	ref:null,
 	deviceReady:false,
 	
+	isPhoneGap: function() {
+		if (window.cordova)
+			return true;
+		else
+			return false;
+	},
+	
     initialize: function() {
         this.bindEvents();
     },
@@ -12,10 +19,14 @@ var app = {
     },
 
     onPlayGame: function() {
-    	if (app.deviceReady)
+    	if (app.isPhoneGap()==false)
+		{
+    		window.location.href = "https://www.playinitium.com/main.jsp";
+		}
+    	else if (app.deviceReady)
     	{
 	    	showLoadingIndicator();
-	    	app.ref = window.open('https://www.playinitium.com/main.jsp', '_self', 'location=no,hidden=yes');
+	    	app.ref = window.open('https://www.playinitium.com/main.jsp', window.name, 'location=no,hidden=yes');
 	    	app.ref.addEventListener('loadstop', hideLoadingIndicator);
 	    	app.ref.addEventListener('loaderror', showErrorLoading);
     	}
@@ -50,7 +61,7 @@ function shutdownGame(event)
 
 function showLoadingIndicator(event)
 {
-	$("body").append("<div class='loading-indicator'><h1>Connecting to server...</h1></div>");
+	//$("body").append("<div class='loading-indicator'><h1>Connecting to server...</h1></div>");
 }
 
 function hideLoadingIndicator(event)

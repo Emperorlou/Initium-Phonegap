@@ -26,7 +26,7 @@ var app = {
     	else if (app.deviceReady)
     	{
 	    	showLoadingIndicator();
-	    	app.ref = window.open('https://www.playinitium.com/main.jsp', window.name, 'location=no,hidden=yes');
+	    	app.ref = window.open('https://www.playinitium.com/main.jsp', "_self", 'location=no,hidden=yes');
 	    	app.ref.addEventListener('loadstop', hideLoadingIndicator);
 	    	app.ref.addEventListener('loaderror', showErrorLoading);
     	}

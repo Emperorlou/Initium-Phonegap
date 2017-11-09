@@ -67,7 +67,8 @@ function showLoadingIndicator(event)
 
 function hideLoadingIndicator(event)
 {
-	$(".loading-indicator").remove();
+	app.ref.show();
+	$(".loading-indicator").fadeOut();
 }
 
 function showErrorLoading(event)

@@ -67,8 +67,7 @@ function showLoadingIndicator(event)
 
 function hideLoadingIndicator(event)
 {
-	$(".loading-indicator").fadeOut();
-	setTimeout(app.ref.show, 400);
+	$(".loading-indicator").remove();
 }
 
 function showErrorLoading(event)

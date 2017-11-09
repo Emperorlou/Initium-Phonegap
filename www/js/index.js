@@ -31,7 +31,7 @@ var app = {
 	    	app.ref.addEventListener('loaderror', showErrorLoading);
     	}
     	else
-    		alert("Game is still initializing, please wait...");
+    		alert("Game is still initializing, please wait...\nIf you keep getting this message, check your internet connection.");
     },
 
     onDeviceReady: function() {
@@ -61,13 +61,14 @@ function shutdownGame(event)
 
 function showLoadingIndicator(event)
 {
-	//$("body").append("<div class='loading-indicator'><h1>Connecting to server...</h1></div>");
+	$("body").append("<div class='loading-indicator'><h1>Connecting to server...</h1></div>");
+	$(".loading-indicator").hide().fadeIn();
 }
 
 function hideLoadingIndicator(event)
 {
-	app.ref.show();
-	$(".loading-indicator").remove();
+	$(".loading-indicator").fadeOut();
+	setTimeout(app.ref.show, 400);
 }
 
 function showErrorLoading(event)

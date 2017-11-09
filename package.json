@@ -1,0 +1,14 @@
+{
+    "name": "com.phonegap.helloworld",
+    "version": "1.0.0",
+    "displayName": "Initium",
+    "cordova": {
+        "platforms": [
+            "android"
+        ],
+        "plugins": {}
+    },
+    "dependencies": {
+        "cordova-android": "^4.0.2"
+    }
+}

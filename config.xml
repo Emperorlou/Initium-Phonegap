@@ -1,12 +1,11 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.playinitium" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+<widget id="com.playinitium" version="0.5.1" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
     <name>Initium</name>
     <description>
         Initium is a very simple MMORPG about fighting monsters and gathering loot in a shared world!
     </description>
-    <author email="CptSpaceToaster@gmail.com, cpwinchcombe@gmail.com">
-        CptSpaceToaster
-        TuathaDannan
+    <author email="narmstrong@playinitium.com">
+    	InitiumDev
     </author>
     <content src="index.html" />
     <preference name="permissions" value="none" />

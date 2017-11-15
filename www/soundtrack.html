@@ -4,13 +4,13 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"> 
 <title>Initium Soundtrack</title> 
-<script async="" src="./soundtrack_files/analytics.js.download"></script>
-<script type="text/javascript" src="./soundtrack_files/jquery.min.js.download"></script>
-<script src="./soundtrack_files/jquery.jplayer.min.js.download" crossorigin="anonymous"></script>
-<script src="./soundtrack_files/jplayer.playlist.min.js.download" crossorigin="anonymous"></script>
-<script src="./soundtrack_files/jquery.jplayer.inspector.min.js.download" crossorigin="anonymous"></script>
+<script type="text/javascript" src="./soundtrack_files/analytics.js.download"></script>
+<script type="text/javascript" src="./soundtrack_files/jquery.min.js.download"  onload="if (window.module!=null) window.$ = window.jQuery = module.exports;"></script>
+<script type="text/javascript" src="./soundtrack_files/jquery.jplayer.min.js.download" ></script>
+<script type="text/javascript" src="./soundtrack_files/jplayer.playlist.min.js.download" ></script>
+<script type="text/javascript" src="./soundtrack_files/jquery.jplayer.inspector.min.js.download" ></script>
 
-<link rel="stylesheet" href="./soundtrack_files/jplayer.pink.flag.css" crossorigin="anonymous">
+<link rel="stylesheet" href="./soundtrack_files/jplayer.pink.flag.css"/>
 
 <script type="text/javascript">
 $(document).ready(function(){
@@ -91,7 +91,7 @@ var myPlaylist = new jPlayerPlaylist({
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
   ga('create', 'UA-62104245-1', 'auto');
   ga('send', 'pageview');

@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.playinitium" version="0.5.3" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+<widget id="com.playinitium" version="0.5.4" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
     <name>Initium</name>
     <description>
         Initium is a MMORPG browser-based game made by Redditors. Often touted as one of the best games to play while at work/school. It's like a regular MMORPG but made from photographs, complete with Diablo-like loot, monsters, dungeons, and server-wide events.
@@ -8,6 +8,7 @@
     	InitiumDev
     </author>
     <content src="index.html" />
+
     <preference name="permissions" value="none" />
     <preference name="orientation" value="default" />
     <preference name="target-device" value="universal" />
@@ -25,16 +26,22 @@
     <preference name="android-installLocation" value="auto" />
     <preference name="phonegap-version" value="cli-7.0.1" />
     <preference name="SplashScreen" value="icon.png" />
+
     <gap:plugin name="cordova-plugin-inappbrowser" source="npm" />
     <gap:plugin name="cordova-plugin-whitelist" source="npm" />
+
+    <uses-permission android:name="com.android.vending.BILLING" />
+
     <access origin="*" />
+
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
     <allow-intent href="tel:*" />
     <allow-intent href="sms:*" />
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
-    <icon src="www/icon.png" />
+
+
     <platform name="android">
         <allow-intent href="market:*" />
     </platform>
@@ -42,5 +49,8 @@
         <allow-intent href="itms:*" />
         <allow-intent href="itms-apps:*" />
     </platform>
+
+    <icon src="www/icon.png" />
+
     <engine name="android" spec="^4.0.2" />
 </widget>

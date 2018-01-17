@@ -6,7 +6,9 @@
         "platforms": [
             "android"
         ],
-        "plugins": {}
+        "plugins": {
+            "cordova-plugin-googleplus": {}
+        }
     },
     "dependencies": {
         "cordova-android": "^4.0.2"

@@ -30,6 +30,9 @@
     <gap:plugin name="cc.fovea.cordova.purchase" source="npm" version="6.0.0">
         <param name="BILLING_KEY" value="MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA2g3Dw6JGYAcMvSt8xeeiJDGJlKnodGYZjadE8FjC1eY7mKWh+0Yt/CZDFDAsIZL7yhiykDzHtfFpmrbLXrHhT96d9HUzI7iAFDR/yNYI4QPI6sR4TApdq+r75Q7TGqzdpR3hQ+tX0iUM29AGE7FRm/FF+B+F3c8hy3wL6wAh6BIJ/edZ5p9UGyFz1DRiPKnruY8rNtnp3uYe5Tkb/VMjNbGTqiGRZaLVP04gflZPLK5ApR2yt9h2xDzyd+75isJkETB/D2W/b1S/7r8DiWyqpw4RI1e52CGF1tJpvKFcmk0pHC2AcmKuLiC00MvZ2flLcts1NGztxTDJv2/oaP/uEQIDAQAB" />
     </gap:plugin> 
+	<gap:plugin name="cordova-plugin-googleplus" source="npm">
+	  <param name="REVERSED_CLIENT_ID" value="myreversedclientid" />
+	</gap:plugin>
     <access origin="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
@@ -46,5 +49,4 @@
     </platform>
     <icon src="www/icon.png" />
     <engine name="android" spec="^4.0.2" />
-    <!-- <plugin name="cordova-plugin-googleplus" /> Disabled for now-->
 </widget>

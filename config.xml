@@ -1,5 +1,11 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.playinitium" version="1.0.11" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+<widget 
+id="com.playinitium" 
+version="1.0.12" 
+xmlns="http://www.w3.org/ns/widgets" 
+xmlns:gap="http://phonegap.com/ns/1.0" 
+xmlns:android="http://schemas.android.com/apk/res/android"
+>
     <name>Initium</name>
     <description>
         Initium is a MMORPG browser-based game made by Redditors. Often touted as one of the best games to play while at work/school. It's like a regular MMORPG but made from photographs, complete with Diablo-like loot, monsters, dungeons, and server-wide events.
@@ -50,4 +56,8 @@
     </platform>
     <icon src="www/icon.png" />
     <engine name="android" spec="^4.0.2" />
+    
+	<gap:config-file platform="android" parent="/manifest">
+	     <application android:debuggable="true" />
+	</gap:config-file>    
 </widget>

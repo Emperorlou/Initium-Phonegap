@@ -1,0 +1,51 @@
+{
+  "project_info": {
+    "project_number": "554081606132",
+    "project_id": "firebase-playinitium"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:554081606132:android:bbb58afd1ebd7408",
+        "android_client_info": {
+          "package_name": "com.playinitium"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "554081606132-vef7lmr0fprlqv6rda40l8rp1784murk.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "554081606132-a5d5f6jq4dhlop7652mcfigav0jglhmh.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.playinitium",
+            "certificate_hash": "1ef4060e07dee52d451706fc6eb6d5ede6299b6d"
+          }
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCKk_ajAsxkwq6eraelMD1sXTCub7fuqrE"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 2,
+          "analytics_property": {
+            "tracking_id": "UA-62104245-1"
+          }
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

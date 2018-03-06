@@ -1,51 +1,104 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
-
-<script type='text/javascript'>
-function regularSignin()
-{
-	window.plugins.googleplus.login(
-		    {
-		      //'scopes': '... ', // optional, space-separated list of scopes, If not included or empty, defaults to `profile` and `email`.
-			      'webClientId': '554081606132-a5d5f6jq4dhlop7652mcfigav0jglhmh.apps.googleusercontent.com', // optional - clientId of your Web application from Credentials settings of your project - On Android, this MUST be included to get an idToken. On iOS, it is not required.
-			      'offline': true, // Optional, but requires the webClientId - if set to true the plugin will also return a serverAuthCode, which can be used to grant offline access to a non-Google server
-		    },
-		    function (obj) {
-		      alert(JSON.stringify(obj)); // do something useful instead of alerting
-		    },
-		    function (msg) {
-		      alert('error: ' + msg);
-		    }
-		);
-}
-
-function silentSignin()
-{
-	window.plugins.googleplus.trySilentLogin(
-		    {
-		      //'scopes': '... ', // optional - space-separated list of scopes, If not included or empty, defaults to `profile` and `email`.
-		      'webClientId': '554081606132-a5d5f6jq4dhlop7652mcfigav0jglhmh.apps.googleusercontent.com', // optional - clientId of your Web application from Credentials settings of your project - On Android, this MUST be included to get an idToken. On iOS, it is not required.
-		      'offline': true, // Optional, but requires the webClientId - if set to true the plugin will also return a serverAuthCode, which can be used to grant offline access to a non-Google server
-		    },
-		    function (obj) {
-		      alert(JSON.stringify(obj)); // do something useful instead of alerting
-		    },
-		    function (msg) {
-		      alert('error: ' + msg);
-		    }
-		);
-}
-
-</script>
-
+  <meta charset="utf-8"/>
+  <meta name="format-detection" content="telephone=no"/>
+  <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height"/>
+  <link rel="stylesheet" type="text/css" href="css/index.css"/>
+  <meta name="msapplication-tap-highlight" content="no"/>
+  <title>Hello World</title>
 </head>
 <body>
-<a href='index.html'>Go back</a>
-<br><br><br><br>
-<input type='button' value='Regular signin' onclick='regularSignin();'/>
-<input type='button' value='Silent signin' onclick='silentSignin();'/>
+<div class="app">
+  <img id="image" style="position:absolute; top:10px; left:10px" src="" />
+
+  <h1>Google+</h1>
+
+  <div id="deviceready" class="blink">
+    <p class="event listening">Connecting to Device</p>
+    <p class="event received">Device is Ready</p>
+
+    <p id="feedback">not logged in</p>
+    <button onclick="isAvailable()">Available?</button>
+    <br/><br/>
+    <button onclick="login()">Login with Google+</button>
+    <br/><br/>
+    <button onclick="trySilentLogin()">Try silent login with Google+</button>
+    <br/><br/>
+    <button onclick="logout()">Logout</button>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <button onclick="disconnect()">Disconnect</button>
+    <br/><br/>
+    <button onclick="window.plugins.googleplus.getSigningCertificateFingerprint(function(res){alert(res)}, function(res){alert(res)})">get cert fingerprint (Android)</button>
+  </div>
+</div>
+<script type="text/javascript" src="cordova.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
+<script type="text/javascript">
+  app.initialize();
+  function isAvailable() {
+    window.plugins.googleplus.isAvailable(function(avail) {alert(avail)});
+  }
+  function login() {
+    window.plugins.googleplus.login(
+        {
+        	'webClientId':'554081606132-a5d5f6jq4dhlop7652mcfigav0jglhmh.apps.googleusercontent.com',
+        	'offline':true
+        },
+        function (obj) {
+          document.querySelector("#image").src = obj.imageUrl;
+          document.querySelector("#image").style.visibility = 'visible';
+          document.querySelector("#feedback").innerHTML = "Hi, " + obj.displayName + ", " + obj.email;
+        },
+        function (msg) {
+          document.querySelector("#feedback").innerHTML = "error: " + msg;
+        }
+    );
+  }
+  function trySilentLogin() {
+    window.plugins.googleplus.trySilentLogin(
+        {
+        	'webClientId':'554081606132-a5d5f6jq4dhlop7652mcfigav0jglhmh.apps.googleusercontent.com',
+        	'offline':true
+        },
+        function (obj) {
+          document.querySelector("#image").src = obj.imageUrl;
+          document.querySelector("#image").style.visibility = 'visible';
+          document.querySelector("#feedback").innerHTML = "Silent hi, " + obj.displayName + ", " + obj.email;
+        },
+        function (msg) {
+          document.querySelector("#feedback").innerHTML = "error: " + msg;
+        }
+    );
+  }
+  function logout() {
+    window.plugins.googleplus.logout(
+        function (msg) {
+          document.querySelector("#image").style.visibility = 'hidden';
+          document.querySelector("#feedback").innerHTML = msg;
+        },
+        function (msg) {
+          document.querySelector("#feedback").innerHTML = msg;
+        }
+    );
+  }
+  function disconnect() {
+    window.plugins.googleplus.disconnect(
+        function (msg) {
+          document.querySelector("#image").style.visibility = 'hidden';
+          document.querySelector("#feedback").innerHTML = msg;
+        },
+        function (msg) {
+          document.querySelector("#feedback").innerHTML = msg;
+        }
+    );
+  }
+  window.onerror = function(what, line, file) {
+    alert(what + '; ' + line + '; ' + file);
+  };
+  function handleOpenURL (url) {
+    document.querySelector("#feedback").innerHTML = "App was opened by URL: " + url;
+  }
+</script>
 </body>
 </html>

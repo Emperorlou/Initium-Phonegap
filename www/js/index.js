@@ -18,6 +18,23 @@ var app = {
         document.addEventListener('menubutton', shutdownGame, false);
     },
 
+    onOAuthLogin: function()
+    {
+    	if (app.isPhoneGap()==false)
+		{
+    		window.location.href = "https://www.playinitium.com/ServletUserControl?type=oauth&authType=google";
+		}
+    	else if (app.deviceReady)
+    	{
+	    	showLoadingIndicator();
+	    	app.ref = window.open('https://www.playinitium.com/ServletUserControl?type=oauth&authType=google', "_self", 'location=no,hidden=yes');
+	    	app.ref.addEventListener('loadstop', hideLoadingIndicator);
+	    	app.ref.addEventListener('loaderror', showErrorLoading);
+    	}
+    	else
+    		alert("Game is still initializing, please wait...\nIf you keep getting this message, check your internet connection.");
+    },
+    
     onPlayGame: function() {
     	if (app.isPhoneGap()==false)
 		{

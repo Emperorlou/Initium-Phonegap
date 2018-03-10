@@ -1,3 +1,9 @@
+window.loginConfig = 
+{
+	'webClientId':'236957303251-83rr9gcnddjfcgkm35a2o70rf2rvfq2d.apps.googleusercontent.com',
+	'offline':false
+};
+
 var app = {
 	ref:null,
 	deviceReady:false,
@@ -18,6 +24,28 @@ var app = {
         document.addEventListener('menubutton', shutdownGame, false);
     },
 
+    onAjaxOAuthLogin: function()
+    {
+        window.plugins.googleplus.login(
+                loginConfig,
+                function (obj) {
+                  alert("Hi, " + obj.displayName + ", " + obj.email);
+                  
+                  $.post("https://www.playinitium.com/ServletUserControl?type=ajaxOAuth", {token:obj.idToken})
+                  .done(function(data){
+                	  alert(data.next);
+                  })
+                  .fail(function(data){
+                	  alert("Error: "+data);
+                  });
+                },
+                function (msg) {
+                  alert("error: " + msg);
+                }
+            );
+    },
+    
+    
     onOAuthLogin: function()
     {
     	if (app.isPhoneGap()==false)

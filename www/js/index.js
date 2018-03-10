@@ -26,16 +26,11 @@ var app = {
 
     onAjaxOAuthLogin: function()
     {
-    	if (window.plugins.googleplus.isAvailable(function(avail) {alert(avail)})==false)
-    	{
-    		alert("Google login not available...");
-    		return;
-    	}
         window.plugins.googleplus.login(
                 window.loginConfig,
                 function (obj) {
                   alert("Hi, " + obj.displayName + ", " + obj.email);
-                  
+                  alert(obj);
                   $.post("https://www.playinitium.com/ServletUserControl?type=ajaxOAuth", {type:"ajaxOAuth", token:obj.idToken})
                   .done(function(data){
                 	  alert(data.next);

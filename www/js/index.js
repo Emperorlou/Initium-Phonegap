@@ -36,7 +36,7 @@ var app = {
                 function (obj) {
                   alert("Hi, " + obj.displayName + ", " + obj.email);
                   
-                  $.post("https://www.playinitium.com/ServletUserControl", {type:"ajaxOAuth", token:obj.idToken})
+                  $.post("https://www.playinitium.com/ServletUserControl?type=ajaxOAuth", {type:"ajaxOAuth", token:obj.idToken})
                   .done(function(data){
                 	  alert(data.next);
                   })

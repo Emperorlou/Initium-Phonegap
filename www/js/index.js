@@ -31,13 +31,12 @@ var app = {
                 function (obj) {
                   alert("Hi, " + obj.displayName + ", " + obj.email);
                   alert(obj.idToken);
-                  alert(obj.idToken.execute);
-                  $.post("https://www.playinitium.com/ServletUserControl?type=ajaxOAuth", {type:"ajaxOAuth", token:obj.idToken.execute})
+                  $.post("https://www.playinitium.com/ServletUserControl?type=ajaxOAuth", {type:"ajaxOAuth", token:obj.idToken})
                   .done(function(data){
                 	  alert(data.next);
                   })
                   .fail(function(data){
-                	  alert("Error: "+data);
+                	  alert("Error: "+data.stringify());
                   });
                 },
                 function (msg) {

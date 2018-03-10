@@ -33,10 +33,10 @@ var app = {
                   alert(obj.idToken);
                   $.post("https://www.playinitium.com/ServletUserControl?type=ajaxOAuth", {type:"ajaxOAuth", token:obj.idToken})
                   .done(function(data){
-                	  alert(data.next);
+                	  alert(JSON.stringify(data));
                   })
                   .fail(function(data){
-                	  alert("Error: "+data.stringify());
+                	  alert("Error: "+JSON.stringify(data));
                   });
                 },
                 function (msg) {

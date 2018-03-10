@@ -30,8 +30,9 @@ var app = {
                 window.loginConfig,
                 function (obj) {
                   alert("Hi, " + obj.displayName + ", " + obj.email);
-                  alert(obj);
-                  $.post("https://www.playinitium.com/ServletUserControl?type=ajaxOAuth", {type:"ajaxOAuth", token:obj.idToken})
+                  alert(obj.idToken);
+                  alert(obj.idToken.execute);
+                  $.post("https://www.playinitium.com/ServletUserControl?type=ajaxOAuth", {type:"ajaxOAuth", token:obj.idToken.execute})
                   .done(function(data){
                 	  alert(data.next);
                   })

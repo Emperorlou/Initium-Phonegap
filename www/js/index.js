@@ -26,8 +26,13 @@ var app = {
 
     onAjaxOAuthLogin: function()
     {
+    	if (window.plugins.googleplus.isAvailable(function(avail) {alert(avail)})==false)
+    	{
+    		alert("Google login not available...");
+    		return;
+    	}
         window.plugins.googleplus.login(
-                loginConfig,
+                window.loginConfig,
                 function (obj) {
                   alert("Hi, " + obj.displayName + ", " + obj.email);
                   

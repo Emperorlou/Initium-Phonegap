@@ -7,10 +7,12 @@
             "android"
         ],
         "plugins": {
-            "cordova-plugin-googleplus": {}
+            "cordova-plugin-googleplus": {},
+            "cordova-plugin-file": {}
         }
     },
     "dependencies": {
-        "cordova-android": "^4.0.2"
+        "cordova-android": "^4.0.2",
+        "cordova-plugin-file": "~4.3.3"
     }
 }

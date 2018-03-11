@@ -1,11 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget 
-id="com.playinitium" 
-version="1.0.12" 
-xmlns="http://www.w3.org/ns/widgets" 
-xmlns:gap="http://phonegap.com/ns/1.0" 
-xmlns:android="http://schemas.android.com/apk/res/android"
->
+<widget id="com.playinitium" version="1.0.12" xmlns="http://www.w3.org/ns/widgets" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:gap="http://phonegap.com/ns/1.0">
     <name>Initium</name>
     <description>
         Initium is a MMORPG browser-based game made by Redditors. Often touted as one of the best games to play while at work/school. It's like a regular MMORPG but made from photographs, complete with Diablo-like loot, monsters, dungeons, and server-wide events.
@@ -31,7 +25,6 @@ xmlns:android="http://schemas.android.com/apk/res/android"
     <preference name="android-installLocation" value="auto" />
     <preference name="phonegap-version" value="cli-7.0.1" />
     <preference name="SplashScreen" value="icon.png" />
-	<plugin name="cordova-plugin-file" spec="~4.3.3" />
     <gap:plugin name="cordova-plugin-inappbrowser" source="npm" />
     <gap:plugin name="cordova-plugin-whitelist" source="npm" />
     <gap:plugin name="cc.fovea.cordova.purchase" source="npm" version="6.0.0">
@@ -55,9 +48,10 @@ xmlns:android="http://schemas.android.com/apk/res/android"
         <allow-intent href="itms-apps:*" />
     </platform>
     <icon src="www/icon.png" />
+    <gap:config-file parent="/manifest" platform="android">
+        <application android:debuggable="true" />
+    </gap:config-file>
     <engine name="android" spec="^4.0.2" />
-    
-	<gap:config-file platform="android" parent="/manifest">
-	     <application android:debuggable="true" />
-	</gap:config-file>    
+    <plugin name="cordova-plugin-file" spec="~4.3.3" />
+    <plugin name="cordova-plugin-googleplus" />
 </widget>

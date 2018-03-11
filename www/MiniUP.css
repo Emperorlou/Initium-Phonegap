@@ -14,6 +14,22 @@
     src: url(arial-narrow-2.ttf);
 }
 
+/**
+ * Marching ants border
+ */
+ 
+.marching-ants 
+{
+    border: 1px solid transparent!important;
+    -moz-border-image: image-url('images/ants1.gif') 1 repeat repeat!important;
+    -webkit-border-image: url('images/ants1.gif') 1 repeat repeat!important;
+    border-image: url('images/ants1.gif') 1 repeat repeat!important;
+}
+.chat-character-fix
+{
+	font-family: serif;	
+}
+
 #mix-blending-fix
 {
     background-color: #0e0b06;
@@ -101,7 +117,7 @@ h3
 
 h4
 {
-	font-size: 24px;
+	font-size: 22px;
 	text-shadow: 2px 2px 3px rgba(0, 0, 0, 1);
 	font-weight:normal;
 	margin-top:20px;
@@ -111,7 +127,7 @@ h4
 
 h5
 {
-	font-size: 20px;
+	font-size: 19px;
 	font-weight:normal;
 	margin-top:20px;
 	margin-bottom:3px;
@@ -123,12 +139,20 @@ a:HOVER
 	text-decoration: underline;	
 }
 
+.list-item
+{
+	display:table-cell;
+	width:100%;
+}
+
 .list-item-X
 {
 	margin-top: 10px;
 	font-size: 20px;
 	color: #AA0000; 
-	cursor:pointer;	
+	cursor:pointer;
+	display:table-cell;
+	vertical-align:middle;	
 }
 
 hr {
@@ -312,9 +336,10 @@ hr:after {
 
 .main-page
 {
-    max-width: 1280px;
+    /*max-width: 1280px;*/
     margin: 0 auto;	
 }
+
 
 .main-bottomhalf
 {
@@ -325,7 +350,8 @@ hr:after {
 {
 	position: relative;
     z-index: 1000100;
-    padding-bottom: 28.98352%;
+    min-height:50px;
+  	/*padding-bottom: 28.98352%;*/
 }
 
 .main-banner-container
@@ -466,17 +492,18 @@ hr:after {
 .mini-window-header
 {
 	position:relative;
-	width:290px;
 	height:132px;
 	background-color:#222222;
 	padding:14px;	
 	font-size:16px;
+	margin:-4px;
+	margin-bottom:0px;
 }
 
 .mini-window-header-split
 {
 	vertical-align:top;
-	width: 142px;
+	width: 133px;
 	margin: 0px;
 	padding: 0px;
 	display:inline-block;
@@ -579,6 +606,11 @@ a.main-highlight:HOVER
 	font-size:15px;
 }
 
+.item-modifiers
+{
+	color:#56519d;
+}
+
 .simple-aspect-list
 {
 	margin-top:7px;
@@ -590,7 +622,7 @@ a.main-highlight:HOVER
 .backgroundcliptext .item-custom
 {
 	font-size:20px;
-    text-shadow: 0px 3px 6px rgba(0, 0, 0, 0.7);
+    text-shadow: 1px 1px 1px #004e00a1;
     color: transparent;
     background-color: #00BB00 !important;
     -webkit-background-clip: text;
@@ -653,7 +685,7 @@ a.main-highlight:HOVER
 .backgroundcliptext .item-rare
 {
     font-size: 20px;
-    text-shadow: 0px 3px 6px rgba(0, 0, 0, 0.7);
+    text-shadow: 1px 1px 0px #864800b0;
     color: transparent;
     background-color: #DD7700;
     -webkit-background-clip: text;
@@ -663,9 +695,9 @@ a.main-highlight:HOVER
 .backgroundcliptext .item-unique
 {
     font-size: 20px;
-    text-shadow: 0px 3px 6px rgba(0, 0, 0, 0.7);
+    text-shadow: 1px 1px 1px #b38400c9;
     color: transparent;
-    background-color: #F9CC00;
+	background-color: #f9c000;
     -webkit-background-clip: text;
     -moz-background-clip: text;
 }
@@ -674,7 +706,7 @@ a.main-highlight:HOVER
 .backgroundcliptext .item-epic
 {
     font-size: 20px;
-    text-shadow: 0px 3px 6px rgba(0, 0, 0, 0.7);
+    text-shadow: 1px 1px 0px #5e2e8cd4;
     color: transparent;
     background-color: #AC54FF;
     -webkit-background-clip: text;
@@ -684,7 +716,7 @@ a.main-highlight:HOVER
 .backgroundcliptext .item-magic
 {
     font-size: 20px;
-    text-shadow: 0px 3px 6px rgba(0, 0, 0, 0.7);
+    text-shadow: 1px 1px 1px #0b2e4e8a;
     color: transparent;
 	background-color: #2597FF;
     -webkit-background-clip: text;
@@ -715,6 +747,7 @@ a.main-highlight:HOVER
 	display: inline-block;
 	font-size:17px;
 	width:99%;
+	position:relative;
 }
 
 .equip-slot
@@ -980,6 +1013,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00160000', e
 }
 .make-popup
 {
+	display:block!important;
     max-width: 600px;
     width:300px;
     z-index: 10000000;
@@ -1123,6 +1157,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00160000', e
 }
 .v3-main-button:hover
 {
+	text-decoration:none;
 	text-shadow: 0px 0px 20px yellow;
 }
 .v3-main-button .shortcut-key
@@ -1154,8 +1189,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00160000', e
 }
 .v3-main-button-half:hover
 {
-	text-shadow: 0px 0px 20px yellow;
 	text-decoration: none;
+	text-shadow: 0px 0px 20px yellow;
 }
  .v3-main-button-half .shortcut-key
  {
@@ -1199,6 +1234,19 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00160000', e
 	color:#DDDDDD;
 
 
+}
+
+.main-textbox2 input[type=text], .main-textbox2 input[type=password], .main-textbox2 input[type=email]
+{
+	color: #e8e8e8;
+	font-family: DOS;
+	background-color:transparent;
+	border-style: solid;
+	border-width: 17px 19px 17px 16px;
+	-moz-border-image: url(images/ui3/input1-background.png) 17 19 17 16 stretch;
+	-webkit-border-image: url(images/ui3/input1-background.png) 17 19 17 16 stretch;
+	-o-border-image: url(images/ui3/input1-background.png) 17 19 17 16 stretch;
+	border-image: url(images/ui3/input1-background.png) 17 19 17 16 fill stretch;
 }
 
 .main-textbox input[type=text], .main-textbox input[type=password], .main-textbox input[type=email]
@@ -1265,10 +1313,11 @@ hr.items-separator {
 
 .popup_confirm_option
 {
-	margin:20px;
-	color: #DAA520;
-	font-size:36px;
-	cursor:pointer;
+    margin: 20px;
+    padding-top: 10px;
+    color: #DAA520;
+    font-size: 27px;
+    cursor: pointer;
 }
 .popup_prompt_input
 {
@@ -1427,7 +1476,7 @@ a.range-increment {
     border-width: 4px;
     height: 25px;
     position: relative;
-    top: 0px;
+    top: -1px;
     right: -1px;
     cursor:pointer;
 }
@@ -1748,12 +1797,12 @@ a.range-increment {
 
 .avatar-equip-gloves-left
 {
-	position:absolute; top:10px; left:1px; width:10px; height:15px; background-size:contain; background-position:center; background-repeat:no-repeat;
+	position:absolute; top:13px; left:3px; width:10px; height:15px; background-size:contain; background-position:center; background-repeat:no-repeat;
 }
 
 .avatar-equip-gloves-right
 {
-	position:absolute; top:10px; right:1px; width:10px; height:15px; background-size:contain; background-position:center; background-repeat:no-repeat; -moz-transform: scaleX(-1); -o-transform: scaleX(-1); -webkit-transform: scaleX(-1); transform: scaleX(-1); filter: FlipH; -ms-filter: "FlipH";
+	position:absolute; top:13px; right:5px; width:10px; height:15px; background-size:contain; background-position:center; background-repeat:no-repeat; -moz-transform: scaleX(-1); -o-transform: scaleX(-1); -webkit-transform: scaleX(-1); transform: scaleX(-1); filter: FlipH; -ms-filter: "FlipH";
 }
 
 .avatar-equip-leftHand
@@ -1856,7 +1905,7 @@ a.range-increment {
 {
 	position:absolute;
 	top:25px;
-	left:5px;
+	left:6px;
 	width:20px;
 	height:30px;
 	background-size:contain;
@@ -1868,7 +1917,7 @@ a.range-increment {
 {
 	position:absolute;
 	top:25px;
-	right:5px;
+	right:10px;
 	width:20px;
 	height:30px;
 	background-size:contain;
@@ -1955,6 +2004,7 @@ a.range-increment {
 	right:0px;
 	bottom:0px;
 	margin-right:20px;
+	margin-left:20px;
 }
 .character-display-box-overlay:hover
 {
@@ -2135,6 +2185,11 @@ a.range-increment {
     z-index: 10000000;	
 }
 
+.hiddenPullout-content p
+{
+	margin-top:8px;
+}
+
 
 .hiddenTooltip
 {
@@ -2242,7 +2297,7 @@ a.range-increment {
 
 .backgroundcliptext .premium-character-name
 {
-    text-shadow: 0px 3px 6px rgba(0, 0, 0, 0.7);
+    text-shadow: 1px 1px 0px rgba(72, 0, 0, 0.65);
     color: transparent;
     background-color: #FF0000;
     -webkit-background-clip: text;
@@ -2472,7 +2527,7 @@ position: absolute;
     text-align: center;
     padding-top: 13px;
     padding-left: 1px;
-    top: -12px;
+    top: -34px;
     right: 0px;
     z-index: 1100001;
     font-family: dos;
@@ -2482,8 +2537,8 @@ position: absolute;
 .page-popup-Reload
 {
     position: absolute;
-    top: -12px;
-    left: -4px;
+    top: -34px;
+    left: -34px;
     z-index: 1100001;
     font-family: Lucida Sans;
     font-size: 32px;
@@ -2636,23 +2691,23 @@ position: absolute;
 }
 #knowledge-tab
 {
-	background-image:url('http://initium-resources.appspot.com/images/ui/tab-knowledge-button.png');
+	background-image:url('images/ui/tab-knowledge-button.png');
 }
 #experimentation-tab
 {
-	background-image:url('http://initium-resources.appspot.com/images/ui/tab-experiments-button.png');
+	background-image:url('images/ui/tab-experiments-button.png');
 }
 #idea-tab
 {
-	background-image:url('http://initium-resources.appspot.com/images/ui/tab-ideas-button.png');
+	background-image:url('images/ui/tab-ideas-button.png');
 }
 #itemConstruction-tab
 {
-	background-image:url('http://initium-resources.appspot.com/images/ui/tab-builditem-button.png');
+	background-image:url('images/ui/tab-builditem-button.png');
 }
 #buildingConstruction-tab
 {
-	background-image:url('http://initium-resources.appspot.com/images/ui/tab-buildbuilding-button.png');
+	background-image:url('images/ui/tab-buildbuilding-button.png');
 }
 .tab-content
 {
@@ -2695,7 +2750,7 @@ position: absolute;
     padding:8px;
     border-radius:8px;
     color:#EEEEEE;
-    z-index:1000;
+    z-index:1000101;
     font-size:15px;
 }
 
@@ -2759,7 +2814,7 @@ position: absolute;
 
 .revealTutorial-popup
 {
-	width:320px;
+	width:305px;
 	padding-left:5px;
 	padding-right:5px;
 	z-index:10000000;
@@ -2848,9 +2903,40 @@ position: absolute;
 	width:100%;
 }
 
+.combat-button
+{
+	min-width:42px;
+	padding:5px;
+	z-index:2000002;
+	/*image-rendering:pixelated;*/
+}
 
+.sublocation-display-container
+{
+	position: relative;
+	cursor:pointer;
+	margin-top:0px;
+}
 
+.sublocation-display-container h5
+{
+    position: absolute;
+    right: 4px;
+    bottom: 2px;
+    margin: 0px;
+    text-shadow: 1px 1px 2px #000;
+    text-align: right;    
+}
 
+.sublocation-display
+{
+    width: 100%;
+    height: 50px;
+    background-position: center center;
+    background-size: cover;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
 
 
 
@@ -2926,7 +3012,7 @@ position: absolute;
 /* - Opera running on high DPI Macs, PCs and mobile devices   */
 /*                                                            */
 /* Please note that that this code assumes you'll swap a      */
-/* 2Ã— version of your images. If you'd like to supply         */
+/* 2× version of your images. If you'd like to supply         */
 /* finer increments, other thresholds might be appropriate.   */
 /*                                                            */
 /* A test for CSS pixel densites can be found here:           */
@@ -3201,6 +3287,10 @@ position: absolute;
 }
 @media (max-width:480px)
 {
+	.combat-button
+	{
+		min-width:32px;
+	}
 	.main-splitScreen
 	{
 		width:100%;
@@ -3220,6 +3310,8 @@ position: absolute;
 	{
 		max-width:23px;
 		margin-top:0px;
+		margin-left:2px!important;
+		margin-right:2px!important;
 	}
 	.avatar-equip-backing
 	{
@@ -3309,7 +3401,6 @@ position: absolute;
 	}
 	
 }
-
 
 	
 	
@@ -3588,7 +3679,7 @@ body
 	-moz-box-shadow: inset 0px 0px 63px 2px #000000;
 	-o-box-shadow: inset 0px 0px 63px 2px #000000;	
 	box-shadow: inset 0px 0px 63px 2px #000000;
-
+	
 	margin-bottom:-5px;
 	
 	/*image-rendering: pixelated;*/	
@@ -3933,9 +4024,25 @@ body
 	background-color:#000000;
 }
 
-.cluetip-rounded .cluetip-outer
+.cluetip-outer
 {
-	/*margin:7px;*/
+	
+}
+
+.cluetip-arrows
+{
+    border-color: #62656e;	
+    border-width: 11px 11px 11px 0;
+    border-top-color: transparent;
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+    font-size: 0;
+    line-height: 0%;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    background: transparent none;
+    margin:-6px;
 }
 
 
@@ -4226,6 +4333,18 @@ body
 	border-image: url(images/ui3/header-border1.jpg) 0 158 0 142 fill repeat stretch;
 }
 
+.v3-header1-flipped
+{
+	background-color:#191817;
+	border-style: solid;
+	border-width: 0px 158px 0px 142px;
+	-moz-border-image: url(images/ui3/header-border1-flipped.jpg) 0 158 0 142 repeat stretch;
+	-webkit-border-image: url(images/ui3/header-border1-flipped.jpg) 0 158 0 142 repeat stretch;
+	-o-border-image: url(images/ui3/header-border1-flipped.jpg) 0 158 0 142 repeat stretch;
+	border-image: url(images/ui3/header-border1-flipped.jpg) 0 158 0 142 fill repeat stretch;
+	
+}
+
 
 .v3-window1
 {
@@ -4393,11 +4512,171 @@ body
 
 
 
+/* Overhead Map */
+
+.overheadmap-mode .banner-shadowbox
+{
+	background: url(images/ui3/mapbackground1.jpg) center center / cover no-repeat !important;	
+}
+
+.overheadmap-mode #immovablesPanel, .overheadmap-mode #banner-text-overlay, .overheadmap-mode #banner-fx, .overheadmap-mode #banner-base
+{
+	display:none;
+}
+
+.overheadmap-mode .overheadmap-overlay
+{
+	display:inherit;
+}
+
+.overheadmap-overlay
+{
+	display:none;
+}
 
 
+.overheadmap-X
+{
+	position: absolute;
+    background-image: url(images/ui3/small-square-button-red.png);
+    color: #e2b766;
+    width: 57px;
+    height: 46px;
+    text-align: center;
+    padding-top: 13px;
+    padding-left: 1px;
+    z-index: 1100001;
+    font-family: dos;
+    font-size: 26px;
+    margin-top: -12px;
+    margin-right: -9px;
+    top: 4%;
+    right: 4%;
+    transform: scale(0.7);
+}
+
+.overheadmap-X img:hover
+{
+	filter: drop-shadow(0px 0px 12px #FFFFCC);	
+}
+
+.overheadmap-cell-container-base
+{
+	position: absolute;
+    left: 50%;
+    top: 50%;	
+}
+
+.overheadmap-cell-container
+{
+    position: absolute;
+    margin-left:-50px;
+    margin-top:-50px;
+}
+
+.overheadmap-cell-container:hover
+{
+	filter: drop-shadow(0px 0px 12px #FFFFCC);
+}
 
 
+.overheadmap-cell-label-container
+{
+	position: absolute;
+    width: 100%;
+    bottom: 7px;
+    margin: 0px;
+    text-align: center;
+    z-index:1;
+}
 
+.overheadmap-cell-label-container .label
+{
+    font-family: quest;
+    color: #3e3323;
+    font-size: 18px;
+    background: #fff0de;
+    background-size: inherit;
+    border-radius: 3px;
+    padding-left: 7px;
+    padding-right: 7px;
+    border: 2px solid #342b1e;
+    display: inline-block;
+    text-shadow:none; 
+    font-weight: bold;
+}
+
+.overheadmap-window
+{
+    border-style: solid;
+    border-width: 72px 91px 90px 99px;
+    -moz-border-image: url(images/ui3/window2-border.jpg) 72 91 90 99 round repeat;
+    -webkit-border-image: url(images/ui3/window2-border.jpg) 72 91 90 99 round repeat;
+    -o-border-image: url(images/ui3/window2-border.jpg) 72 91 90 99 round repeat;
+    border-image: url(images/ui3/window2-border.jpg) 72 91 90 99 fill round repeat;
+    position: fixed;
+    left: 4%;
+    right: 4%;
+    top: 4%;
+    bottom: 4%;	
+}
+
+.overheadmap-window-internal
+{
+	position:relative;
+    color: #614f33;
+    margin: -60px;
+    margin-top: -38px;
+    padding-bottom: 60px;
+    overflow-y: auto;
+    height: 100%;
+    font-family: quest;	
+}
+
+.global-navigation-map
+{
+	display:none;
+}
+
+.overheadmap-window .global-navigation-map
+{
+	display:inherit;
+}
+
+#travel-line
+{
+	stroke: #342c22;
+    stroke-width: 6px;
+    stroke-dasharray: 10;
+    stroke-linecap:round;
+}
+
+#travel-line-cancel-button
+{
+	position:absolute;
+	top:0px;
+	width:100%;
+	left:0px;
+	text-align:center;
+	z-index:2;
+}
+
+#travel-line-cancel-button
+{
+	font-size:22px;
+	color:#3e3323;
+	font-weight:bold;
+}
+
+.this-location-box
+{
+	display:none;
+}
+
+.navigation-box
+{
+	display:none;
+}
 
 
 
@@ -4539,6 +4818,21 @@ body
 */
 @media (max-width:750px)
 {
+	
+	.overheadmap-window
+	{
+	    left: 0%;
+	    right: 0%;
+	    top: 0%;
+	    bottom: 0%;	
+	}
+
+	.overheadmap-X
+	{
+	    right: 0%;
+	    top: 0%;
+	}
+
 	.section
 	{
 		display:block;

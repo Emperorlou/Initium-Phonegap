@@ -64,6 +64,15 @@ var app = {
     },
     
     onPlayGame: function() {
+    	this._login();
+    },
+
+    _login: function(){
+    	$(".menu-panel").hide();
+    	$("#login-panel").show();
+    },
+    
+    _play: function(){
     	if (app.isPhoneGap()==false)
 		{
     		window.location.href = "https://www.playinitium.com/main.jsp";
@@ -78,7 +87,7 @@ var app = {
     	else
     		alert("Game is still initializing, please wait...\nIf you keep getting this message, check your internet connection.");
     },
-
+    
     onDeviceReady: function() {
         app.deviceReady = true;
     },

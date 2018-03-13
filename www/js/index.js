@@ -67,6 +67,12 @@ var app = {
     	this._login();
     },
 
+    onMainMenu: function()
+    {
+    	$(".menu-panel").hide();
+    	$("#buttons-panel").show();
+    },
+    
     _login: function(){
     	$(".menu-panel").hide();
     	$("#login-panel").show();

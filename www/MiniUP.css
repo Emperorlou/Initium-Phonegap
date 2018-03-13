@@ -139,6 +139,16 @@ a:HOVER
 	text-decoration: underline;	
 }
 
+.standard-button-highlight:hover
+{
+	filter: brightness(1.5);
+}
+
+.standard-button-highlight:active
+{
+	filter:brightness(0.5);
+}
+
 .list-item
 {
 	display:table-cell;

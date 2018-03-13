@@ -20,9 +20,22 @@ body
 {
 }
 
+p
+{
+	color:#d8ab6a;	
+}
+
+.logo-container
+{
+	position:absolute;
+	left:50%;
+	top:10%;
+}
+
 .app
 {
 	overflow-x:hidden;
+	height:100%; 
 }    
 
 .anims
@@ -46,6 +59,9 @@ body
 
 .menu-panel-container
 {
+	position:relative;
+	height:100%;
+	
 	background-image:url('images/aera1.jpg');
 	background-position:right;
 	background-repeat: no-repeat;
@@ -56,11 +72,24 @@ body
 	display:flex;
 }
 
+.menu-panel-back-button
+{
+	
+}
+
 .menu-panel
 {
+	position:relative;
 	text-align:center; 
 	width:50%;
 	z-index:1;
+	height:100%;
+}
+
+.menu-contents
+{
+	position: relative;
+    top: 28%;	
 }
 
 .menu-panel p
@@ -103,14 +132,15 @@ body
 
 .landing-logo
 {
-	background-image:url('images/ui3/background1.jpg');
+	/*background-image:url('images/ui3/background1.jpg');*/
 	margin-top:0px;
 	padding:0px;
 }
 
 .landing-logo img
 {
-	max-height:80px;
+	max-width:200%;
+	margin-left:-100%;
 }
 
 
@@ -175,7 +205,11 @@ body
 	border-image: url(images/ui3/input1-background.png) 17 19 17 16 fill stretch;
 }
 
-
+.main-textbox2 input[type=text]:focus, .main-textbox2 input[type=password]:focus, .main-textbox2 input[type=email]:focus
+{
+	filter:brightness(1.5);
+	outline:none;
+}
 
 
 

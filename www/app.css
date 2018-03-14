@@ -25,11 +25,11 @@ p
 	color:#d8ab6a;	
 }
 
-.logo-container
+.centering-container
 {
 	position:absolute;
 	left:50%;
-	top:10%;
+	top:50%;
 }
 
 .app
@@ -86,10 +86,16 @@ p
 	height:100%;
 }
 
+.menu-contents-container
+{
+	
+}
+
 .menu-contents
 {
 	position: relative;
-    top: 28%;	
+    margin-left: -100%;
+    margin-top: -50%;
 }
 
 .menu-panel p
@@ -134,13 +140,13 @@ p
 {
 	/*background-image:url('images/ui3/background1.jpg');*/
 	margin-top:0px;
+	margin-left:-100%;
 	padding:0px;
 }
 
 .landing-logo img
 {
-	max-width:200%;
-	margin-left:-100%;
+	max-width:80%;
 }
 
 

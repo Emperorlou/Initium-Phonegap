@@ -110,6 +110,11 @@ p
 	margin:5px;
 }
 
+#initialize-status
+{
+	font-size:20px;
+}
+
 .loading-indicator
 {
     position: fixed;

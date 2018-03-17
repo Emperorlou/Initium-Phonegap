@@ -7,6 +7,10 @@ window.loginConfig =
 var app = {
 	ref:null,
 	deviceReady:false,
+	internetConnected:null,
+	internetOnline:null,
+	serverOnline:null,
+	loggedIn:null,
 	
 	isPhoneGap: function() {
 		if (window.cordova)
@@ -19,6 +23,26 @@ var app = {
         this.bindEvents();
     },
 
+    initializeConnection: function()
+    {
+    	$("#initialize-status").text("Connecting to server...");
+    	$("#initialize-control").html("<img src='images/wait.gif'/>");
+    	
+    	this.internetOnline = null;
+    	this.loggedIn = null;
+    	
+    	this.internetConnected = window.navigator.onLine;
+    	
+    	if (this.internetConnected == false)
+    	{
+    		setConnectionError("You are not connected to the internet.");
+    		return;
+    	}
+    	
+        this.checkIfLoggedIn();
+    },
+    
+    
     bindEvents: function() {
         document.addEventListener('deviceready', this.onDeviceReady, false);
         document.addEventListener('menubutton', shutdownGame, false);
@@ -63,6 +87,7 @@ var app = {
     		alert("Game is still initializing, please wait...\nIf you keep getting this message, check your internet connection.");
     },
     
+    
     onPlayGame: function() {
     	this._login();
     },
@@ -73,12 +98,79 @@ var app = {
     	$("#buttons-panel").show();
     },
     
+    checkIfLoggedIn: function()
+    {
+        $.post("https://www.playinitium.com/ServletUserControl?type=ajaxLoginCheck", {type:"ajaxLoginCheck"})
+        .done(function(data)
+        {
+      	  //TODO
+        	this.internetOnline = true;
+        	this.serverOnline = true;
+        	this.loggedIn = data.loggedIn;
+        	
+        	if (this.loggedIn)
+    		{
+        		this.showLaunchPage();
+    		}
+        	else
+    		{
+        		this.showLoginPage();
+    		}
+        })
+        .fail(function(data)
+        {
+        	if (data.status>0)
+        	{
+        		this.internetOnline = true;
+        		this.serverOnline = false;
+        		this.loggedIn = null;
+        		
+        		setConnectionError("Unable to connect to game server. The server may be down.");
+        	}
+        	else
+        	{
+        		this.internetOnline = false;
+        		this.serverOnline = null;
+        		this.loggedIn = null;
+        		
+        		setConnectionError("Unable to connect to game server. Your internet may be unstable or something may be blocking the connection to our servers. Try disabling wifi?");
+        	}
+        	
+        	// TODO: Temp
+        	app.showLoginPage();
+        });
+    	
+    },
+    
+    showLoginPage: function()
+    {
+    	$(".menu-panel").hide();
+    	$("#login-panel").show();
+    },
+    
+    showSignupPage: function()
+    {
+    	$(".menu-panel").hide();
+    	$("#signup-panel").show();
+    },
+    
+    showLaunchPage: function()
+    {
+    	$(".menu-panel").hide();
+    	$("#launch-panel").show();
+    },
+    
+    showSoundtrackPage: function()
+    {
+    	location.href = "soundtrack.html";
+    },
+    
     _login: function(){
     	$(".menu-panel").hide();
     	$("#login-panel").show();
     },
     
-    _play: function(){
+    enterGame: function(){
     	if (app.isPhoneGap()==false)
 		{
     		window.location.href = "https://www.playinitium.com/main.jsp";
@@ -96,6 +188,8 @@ var app = {
     
     onDeviceReady: function() {
         app.deviceReady = true;
+
+        app.initializeConnection();
     },
 
     onSettings: function() {
@@ -136,4 +230,11 @@ function showErrorLoading(event)
 	shutdownGame(event);
 	
 	alert("Unable to connect to server: "+event.message);
+}
+
+
+function setConnectionError(msg)
+{
+	$("#initialize-status").text(msg);
+	$("#initialize-control").html("<a onclick='app.initializeConnection();'>Retry connection</a>");
 }

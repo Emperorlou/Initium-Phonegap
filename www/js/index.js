@@ -88,10 +88,6 @@ var app = {
     },
     
     
-    onPlayGame: function() {
-    	this._login();
-    },
-
     onMainMenu: function()
     {
     	$(".menu-panel").hide();
@@ -137,7 +133,7 @@ var app = {
         	}
         	
         	// TODO: Temp
-        	app.showLoginPage();
+        	app.showLaunchPage();
         });
     	
     },
@@ -165,10 +161,6 @@ var app = {
     	location.href = "soundtrack.html";
     },
     
-    _login: function(){
-    	$(".menu-panel").hide();
-    	$("#login-panel").show();
-    },
     
     enterGame: function(){
     	if (app.isPhoneGap()==false)
@@ -184,6 +176,42 @@ var app = {
     	}
     	else
     		alert("Game is still initializing, please wait...\nIf you keep getting this message, check your internet connection.");
+    },
+    
+    logout: function()
+    {
+        $.post("https://www.playinitium.com/ServletUserControl?type=ajaxLogout", {type:"ajaxLogout"})
+        .done(function(data)
+        {
+        	this.internetOnline = true;
+        	this.serverOnline = true;
+        	this.loggedIn = false;
+        	
+    		this.showLoginPage();
+        })
+        .fail(function(data)
+        {
+        	if (data.status==500)
+        	{
+        		alert("There was a server error when attempting to logout. A server log of the error has been generated.");
+    		}
+        	else if (data.status>0)
+        	{
+        		this.internetOnline = true;
+        		this.serverOnline = false;
+        		this.loggedIn = null;
+        		
+        		setConnectionError("Unable to connect to game server. The server may be down.");
+        	}
+        	else
+        	{
+        		this.internetOnline = false;
+        		this.serverOnline = null;
+        		this.loggedIn = null;
+        		
+        		setConnectionError("Unable to connect to game server. Your internet may be unstable or something may be blocking the connection to our servers. Try disabling wifi?");
+        	}
+        });
     },
     
     onDeviceReady: function() {
@@ -235,6 +263,8 @@ function showErrorLoading(event)
 
 function setConnectionError(msg)
 {
+	$(".menu-panel").hide();
+	$("#initialize-panel").show();
 	$("#initialize-status").text(msg);
 	$("#initialize-control").html("<a onclick='app.initializeConnection();'>Retry connection</a>");
 }

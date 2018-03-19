@@ -52,20 +52,39 @@ var app = {
     onAjaxOAuthLogin: function()
     {
         window.plugins.googleplus.login(
-                window.loginConfig,
-                function (obj) {
-                  alert("Hi, " + obj.displayName + ", " + obj.email);
-                  alert(obj.idToken);
-                  $.post("https://test-dot-playinitium.appspot.com/ServletUserControl?suctype=ajaxOAuth", {suctype:"ajaxOAuth", token:obj.idToken})
-                  .done(function(data){
-                	  alert(JSON.stringify(data));
+				window.loginConfig,
+				function (obj) {
+				  alert("Hi, " + obj.displayName + ", " + obj.email);
+				  alert(obj.idToken);
+				  $.post("https://test-dot-playinitium.appspot.com/ServletUserControl?suctype=ajaxOAuth", {suctype:"ajaxOAuth", token:obj.idToken})
+				  .done(function(data){
+			      	  	if (data.error)
+			  	  		{
+			      	  		$("#login-error-message").text(data.error);
+			      	  		return;
+			  	  		}
+			  	  		$("#login-error-message").text("");
+						app.internetOnline = true;
+						app.serverOnline = true;
+						app.loggedIn = data.loggedIn;
+						app.verifyCode = data.verifyCode;
+						
+						if (app.loggedIn)
+						{
+							app.showLaunchPage();
+						}
+						else
+						{
+							app.showLoginPage();
+						}
                   })
                   .fail(function(data){
-                	  alert("Error: "+JSON.stringify(data));
+                	  processFailedAjaxCall(data);
                   });
                 },
                 function (msg) {
-                  alert("error: " + msg);
+	      	  		$("#login-error-message").text(msg);
+	      	  		return;
                 }
             );
     },
@@ -100,7 +119,6 @@ var app = {
         $.post("https://test-dot-playinitium.appspot.com/ServletUserControl?suctype=ajaxLoginCheck", {suctype:"ajaxLoginCheck"})
         .done(function(data)
         {
-      	  //TODO
         	app.internetOnline = true;
         	app.serverOnline = true;
         	app.loggedIn = data.loggedIn;
@@ -117,33 +135,7 @@ var app = {
         })
         .fail(function(data)
         {
-        	if (data.status==500)
-        	{
-        		app.internetOnline = true;
-        		app.serverOnline = false;
-        		app.loggedIn = null;
-        		
-        		setConnectionError("Unable to login to game server. The server had an internal error. Sorry about this!");
-        	}
-        	else if (data.status>0)
-        	{
-        		app.internetOnline = true;
-        		app.serverOnline = false;
-        		app.loggedIn = null;
-        		
-        		setConnectionError("Unable to connect to game server. The server had an error and may be down.");
-        	}
-        	else
-        	{
-        		app.internetOnline = false;
-        		app.serverOnline = null;
-        		app.loggedIn = null;
-        		
-        		setConnectionError("Unable to connect to game server. Your internet may be unstable or something may be blocking the connection to our servers. Try disabling wifi?");
-        	}
-        	
-        	// TODO: Temp
-//        	app.showLaunchPage();
+        	processFailedAjaxCall(data);
         });
     	
     },
@@ -336,4 +328,33 @@ function setConnectionError(msg)
 	$("#initialize-panel").show();
 	$("#initialize-status").text(msg);
 	$("#initialize-control").html("<a onclick='app.initializeConnection();'>Retry connection</a>");
+}
+
+
+function processFailedAjaxCall(data)
+{
+	if (data.status==500)
+	{
+		app.internetOnline = true;
+		app.serverOnline = false;
+		app.loggedIn = null;
+		
+		setConnectionError("The game server failed to process your command. The server had an internal error. Sorry about this!");
+	}
+	else if (data.status>0)
+	{
+		app.internetOnline = true;
+		app.serverOnline = false;
+		app.loggedIn = null;
+		
+		setConnectionError("Unable to connect to game server. The server had an error and may be down.");
+	}
+	else
+	{
+		app.internetOnline = false;
+		app.serverOnline = null;
+		app.loggedIn = null;
+		
+		setConnectionError("Unable to connect to game server. Your internet may be unstable or something may be blocking the connection to our servers. Try disabling wifi?");
+	}
 }

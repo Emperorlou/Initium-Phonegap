@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.playinitium" version="1.0.11" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+<widget id="com.playinitium" version="1.0.14" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
     <name>Initium</name>
     <description>
         Initium is a MMORPG browser-based game made by Redditors. Often touted as one of the best games to play while at work/school. It's like a regular MMORPG but made from photographs, complete with Diablo-like loot, monsters, dungeons, and server-wide events.

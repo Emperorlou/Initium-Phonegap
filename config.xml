@@ -48,10 +48,11 @@
         <allow-intent href="itms-apps:*" />
     </platform>
     <icon src="www/icon.png" />
-    <gap:config-file parent="/manifest" platform="android">
-        <application android:debuggable="true" />
-    </gap:config-file>
     <engine name="android" spec="^4.0.2" />
     <plugin name="cordova-plugin-file" spec="~4.3.3" />
     <plugin name="cordova-plugin-googleplus" />
+    
+	<gap:config-file platform="android" parent="/manifest" mode="delete">
+	    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+	</gap:config-file>     
 </widget>

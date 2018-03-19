@@ -11,6 +11,7 @@ var app = {
 	internetOnline:null,
 	serverOnline:null,
 	loggedIn:null,
+	verifyCode:null,
 	
 	isPhoneGap: function() {
 		if (window.cordova)
@@ -55,7 +56,7 @@ var app = {
                 function (obj) {
                   alert("Hi, " + obj.displayName + ", " + obj.email);
                   alert(obj.idToken);
-                  $.post("https://www.playinitium.com/ServletUserControl?type=ajaxOAuth", {type:"ajaxOAuth", token:obj.idToken})
+                  $.post("https://test-dot-playinitium.appspot.com/ServletUserControl?suctype=ajaxOAuth", {suctype:"ajaxOAuth", token:obj.idToken})
                   .done(function(data){
                 	  alert(JSON.stringify(data));
                   })
@@ -74,12 +75,12 @@ var app = {
     {
     	if (app.isPhoneGap()==false)
 		{
-    		window.location.href = "https://www.playinitium.com/ServletUserControl?type=oauth&authType=google";
+    		window.location.href = "https://test-dot-playinitium.appspot.com/ServletUserControl?suctype=oauth&authType=google";
 		}
     	else if (app.deviceReady)
     	{
 	    	showLoadingIndicator();
-	    	app.ref = window.open('https://www.playinitium.com/ServletUserControl?type=oauth&authType=google', "_self", 'location=no,hidden=yes');
+	    	app.ref = window.open('https://test-dot-playinitium.appspot.com/ServletUserControl?suctype=oauth&authType=google', "_self", 'location=no,hidden=yes');
 	    	app.ref.addEventListener('loadstop', hideLoadingIndicator);
 	    	app.ref.addEventListener('loaderror', showErrorLoading);
     	}
@@ -96,44 +97,111 @@ var app = {
     
     checkIfLoggedIn: function()
     {
-        $.post("https://www.playinitium.com/ServletUserControl?type=ajaxLoginCheck", {type:"ajaxLoginCheck"})
+        $.post("https://test-dot-playinitium.appspot.com/ServletUserControl?suctype=ajaxLoginCheck", {suctype:"ajaxLoginCheck"})
         .done(function(data)
         {
       	  //TODO
-        	this.internetOnline = true;
-        	this.serverOnline = true;
-        	this.loggedIn = data.loggedIn;
+        	app.internetOnline = true;
+        	app.serverOnline = true;
+        	app.loggedIn = data.loggedIn;
+        	app.verifyCode = data.verifyCode;
         	
-        	if (this.loggedIn)
+        	if (app.loggedIn)
     		{
-        		this.showLaunchPage();
+        		app.showLaunchPage();
     		}
         	else
     		{
-        		this.showLoginPage();
+        		app.showLoginPage();
     		}
         })
         .fail(function(data)
         {
-        	if (data.status>0)
+        	if (data.status==500)
         	{
-        		this.internetOnline = true;
-        		this.serverOnline = false;
-        		this.loggedIn = null;
+        		app.internetOnline = true;
+        		app.serverOnline = false;
+        		app.loggedIn = null;
         		
-        		setConnectionError("Unable to connect to game server. The server may be down.");
+        		setConnectionError("Unable to login to game server. The server had an internal error. Sorry about this!");
+        	}
+        	else if (data.status>0)
+        	{
+        		app.internetOnline = true;
+        		app.serverOnline = false;
+        		app.loggedIn = null;
+        		
+        		setConnectionError("Unable to connect to game server. The server had an error and may be down.");
         	}
         	else
         	{
-        		this.internetOnline = false;
-        		this.serverOnline = null;
-        		this.loggedIn = null;
+        		app.internetOnline = false;
+        		app.serverOnline = null;
+        		app.loggedIn = null;
         		
         		setConnectionError("Unable to connect to game server. Your internet may be unstable or something may be blocking the connection to our servers. Try disabling wifi?");
         	}
         	
         	// TODO: Temp
-        	app.showLaunchPage();
+//        	app.showLaunchPage();
+        });
+    	
+    },
+    
+    doClassicLogin: function()
+    {
+    	var email = $("#login-email").val();
+    	var password = $("#login-password").val();
+        $.post("https://test-dot-playinitium.appspot.com/ServletUserControl?suctype=login", {suctype:"login", email:email, password:password, ajax:true})
+        .done(function(data)
+        {
+      	  	if (data.error)
+  	  		{
+      	  		$("#login-error-message").text(data.error);
+      	  		return;
+  	  		}
+  	  		$("#login-error-message").text("");
+        	app.internetOnline = true;
+        	app.serverOnline = true;
+        	app.loggedIn = data.loggedIn;
+        	app.verifyCode = data.verifyCode;
+        	
+        	if (app.loggedIn)
+    		{
+        		app.showLaunchPage();
+    		}
+        	else
+    		{
+        		app.showLoginPage();
+    		}
+        })
+        .fail(function(data)
+        {
+        	if (data.status==500)
+        	{
+        		app.internetOnline = true;
+        		app.serverOnline = false;
+        		app.loggedIn = null;
+        		
+        		setConnectionError("Unable to login to game server. The server had an internal error. Sorry about this!");
+        	}
+        	else if (data.status>0)
+        	{
+        		app.internetOnline = true;
+        		app.serverOnline = false;
+        		app.loggedIn = null;
+        		
+        		setConnectionError("Unable to connect to game server. The server had an error and may be down.");
+        	}
+        	else
+        	{
+        		app.internetOnline = false;
+        		app.serverOnline = null;
+        		app.loggedIn = null;
+        		
+        		setConnectionError("Unable to connect to game server. Your internet may be unstable or something may be blocking the connection to our servers. Try disabling wifi?");
+        	}
+        	
         });
     	
     },
@@ -165,12 +233,12 @@ var app = {
     enterGame: function(){
     	if (app.isPhoneGap()==false)
 		{
-    		window.location.href = "https://www.playinitium.com/main.jsp";
+    		window.location.href = "https://test-dot-playinitium.appspot.com/main.jsp";
 		}
     	else if (app.deviceReady)
     	{
 	    	showLoadingIndicator();
-	    	app.ref = window.open('https://www.playinitium.com/main.jsp', "_self", 'location=no,hidden=yes');
+	    	app.ref = window.open('https://test-dot-playinitium.appspot.com/main.jsp', "_self", 'location=no,hidden=yes');
 	    	app.ref.addEventListener('loadstop', hideLoadingIndicator);
 	    	app.ref.addEventListener('loaderror', showErrorLoading);
     	}
@@ -180,14 +248,15 @@ var app = {
     
     logout: function()
     {
-        $.post("https://www.playinitium.com/ServletUserControl?type=ajaxLogout", {type:"ajaxLogout"})
+        $.post("https://test-dot-playinitium.appspot.com/ServletUserControl?suctype=ajaxLogout", {suctype:"ajaxLogout", v:this.verifyCode})
         .done(function(data)
         {
-        	this.internetOnline = true;
-        	this.serverOnline = true;
-        	this.loggedIn = false;
+        	app.internetOnline = true;
+        	app.serverOnline = true;
+        	app.loggedIn = false;
+        	app.verifyCode = null
         	
-    		this.showLoginPage();
+    		app.showLoginPage();
         })
         .fail(function(data)
         {
@@ -197,17 +266,17 @@ var app = {
     		}
         	else if (data.status>0)
         	{
-        		this.internetOnline = true;
-        		this.serverOnline = false;
-        		this.loggedIn = null;
+        		app.internetOnline = true;
+        		app.serverOnline = false;
+        		app.loggedIn = null;
         		
         		setConnectionError("Unable to connect to game server. The server may be down.");
         	}
         	else
         	{
-        		this.internetOnline = false;
-        		this.serverOnline = null;
-        		this.loggedIn = null;
+        		app.internetOnline = false;
+        		app.serverOnline = null;
+        		app.loggedIn = null;
         		
         		setConnectionError("Unable to connect to game server. Your internet may be unstable or something may be blocking the connection to our servers. Try disabling wifi?");
         	}

@@ -13,7 +13,7 @@
     
     <script type="text/javascript" src="js/jquery.min.js"></script> 
 	<script type="text/javascript" src="js/jquery-ui.js"></script>    
-    <script type="text/javascript" src="js/index.js?v=3"></script>        
+    <script type="text/javascript" src="js/index.js?v=4"></script>        
     <script type="text/javascript" charset="utf-8" src="cordova.js"></script> 
     <script type="text/javascript">
     	if (app)
@@ -140,25 +140,24 @@
 				
 				<div class='centering-container menu-contents-container'>
 					<div class='menu-contents' style='margin-top:-42%'>
-					<form action='' method='POST' class='single-post-form' id='login-form'>
 						<input type='hidden' name='new' value='true'/>
 						<input type='hidden' name='type' value='login'/>
+						<p id='login-error-message' class='error'></p>
 						<div class='main-textbox2'>
-							<input type='email' name='email'  value='' placeholder='Email address'/>
+							<input id='login-email' type='email' name='email'  value='' placeholder='Email address'/>
 						</div>
 						<div class='main-textbox2'>
-							<input type='password' name='password'  value='' placeholder='Password'/>
+							<input id='login-password' type='password' name='password'  value='' placeholder='Password'/>
 						</div>
 						<div class="">
-							<a onclick='$("#login-form").submit();' title='Click here to login after you`ve filled out everything'><img class='standard-button-highlight' src='images/ui3/loginbutton1.png'/></a>
+							<a onclick='app.doClassicLogin()' title='Click here to login after you`ve filled out everything'><img class='standard-button-highlight' src='images/ui3/loginbutton1.png'/></a>
 						</div>
-						
-						<input type='submit' style='display:none'/> 
-					</form>
-					<p>OR</p>
-					<p><a onclick='app.onAjaxOAuthLogin()'><img class='standard-button-highlight' alt='Login using Google' src='images/ui3/login-using-google1.png' border=0/></a></p>
-					<p><a onclick='app.showSignupPage()'><img class='standard-button-highlight' alt='Create new account' src='images/ui3/button-create-new-account1.png' border=0/></a></p>
-		    		<p><a class='menu-panel-back-button standard-button-highlight' onclick='app.exitFromApp()'><img src='images/ui3/button-quit1.png'/></a></p>
+
+
+						<p>OR</p>
+						<p><a onclick='app.onAjaxOAuthLogin()'><img class='standard-button-highlight' alt='Login using Google' src='images/ui3/login-using-google1.png' border=0/></a></p>
+						<p><a onclick='app.showSignupPage()'><img class='standard-button-highlight' alt='Create new account' src='images/ui3/button-create-new-account1.png' border=0/></a></p>
+			    		<p><a class='menu-panel-back-button standard-button-highlight' onclick='app.exitFromApp()'><img src='images/ui3/button-quit1.png'/></a></p>
 					</div>
 				</div>
 	    	</div>

@@ -54,8 +54,6 @@ var app = {
         window.plugins.googleplus.login(
 				window.loginConfig,
 				function (obj) {
-				  alert("Hi, " + obj.displayName + ", " + obj.email);
-				  alert(obj.idToken);
 				  $.post("https://test-dot-playinitium.appspot.com/ServletUserControl?suctype=ajaxOAuth", {suctype:"ajaxOAuth", token:obj.idToken})
 				  .done(function(data){
 			      	  	if (data.error)

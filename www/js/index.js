@@ -54,7 +54,7 @@ var app = {
         window.plugins.googleplus.login(
 				window.loginConfig,
 				function (obj) {
-				  $.post("https://test-dot-playinitium.appspot.com/ServletUserControl?suctype=ajaxOAuth", {suctype:"ajaxOAuth", token:obj.idToken})
+				  $.post("https://www.playinitium.com/ServletUserControl?suctype=ajaxOAuth", {suctype:"ajaxOAuth", token:obj.idToken})
 				  .done(function(data){
 			      	  	if (data.error)
 			  	  		{
@@ -92,12 +92,12 @@ var app = {
     {
     	if (app.isPhoneGap()==false)
 		{
-    		window.location.href = "https://test-dot-playinitium.appspot.com/ServletUserControl?suctype=oauth&authType=google";
+    		window.location.href = "https://www.playinitium.com/ServletUserControl?suctype=oauth&authType=google";
 		}
     	else if (app.deviceReady)
     	{
 	    	showLoadingIndicator();
-	    	app.ref = window.open('https://test-dot-playinitium.appspot.com/ServletUserControl?suctype=oauth&authType=google', "_self", 'location=no,hidden=yes');
+	    	app.ref = window.open('https://www.playinitium.com/ServletUserControl?suctype=oauth&authType=google', "_self", 'location=no,hidden=yes');
 	    	app.ref.addEventListener('loadstop', hideLoadingIndicator);
 	    	app.ref.addEventListener('loaderror', showErrorLoading);
     	}
@@ -114,7 +114,7 @@ var app = {
     
     checkIfLoggedIn: function()
     {
-        $.post("https://test-dot-playinitium.appspot.com/ServletUserControl?suctype=ajaxLoginCheck", {suctype:"ajaxLoginCheck"})
+        $.post("https://www.playinitium.com/ServletUserControl?suctype=ajaxLoginCheck", {suctype:"ajaxLoginCheck"})
         .done(function(data)
         {
         	app.internetOnline = true;
@@ -142,7 +142,7 @@ var app = {
     {
     	var email = $("#login-email").val();
     	var password = $("#login-password").val();
-        $.post("https://test-dot-playinitium.appspot.com/ServletUserControl?suctype=login", {suctype:"login", email:email, password:password, ajax:true})
+        $.post("https://www.playinitium.com/ServletUserControl?suctype=login", {suctype:"login", email:email, password:password, ajax:true})
         .done(function(data)
         {
       	  	if (data.error)
@@ -223,12 +223,12 @@ var app = {
     enterGame: function(){
     	if (app.isPhoneGap()==false)
 		{
-    		window.location.href = "https://test-dot-playinitium.appspot.com/main.jsp";
+    		window.location.href = "https://www.playinitium.com/main.jsp";
 		}
     	else if (app.deviceReady)
     	{
 	    	showLoadingIndicator();
-	    	app.ref = window.open('https://test-dot-playinitium.appspot.com/main.jsp', "_self", 'location=no,hidden=yes');
+	    	app.ref = window.open('https://www.playinitium.com/main.jsp', "_self", 'location=no,hidden=yes');
 	    	app.ref.addEventListener('loadstop', hideLoadingIndicator);
 	    	app.ref.addEventListener('loaderror', showErrorLoading);
     	}
@@ -238,7 +238,7 @@ var app = {
     
     logout: function()
     {
-        $.post("https://test-dot-playinitium.appspot.com/ServletUserControl?suctype=ajaxLogout", {suctype:"ajaxLogout", v:this.verifyCode})
+        $.post("https://www.playinitium.com/ServletUserControl?suctype=ajaxLogout", {suctype:"ajaxLogout", v:this.verifyCode})
         .done(function(data)
         {
         	app.internetOnline = true;

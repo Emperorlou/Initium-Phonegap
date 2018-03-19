@@ -18,6 +18,7 @@ body {
 
 body
 {
+	
 }
 
 p
@@ -283,4 +284,16 @@ p
 	{
 		width:100%;
 	}
+}
+
+@media (max-height:500px)
+{
+	.menu-contents * a img
+	{
+	    height: auto;
+	    width: auto;
+	    max-height: 40px;
+	}
+	
+	
 }

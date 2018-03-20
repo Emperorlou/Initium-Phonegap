@@ -8,6 +8,7 @@
     	InitiumDev
     </author>
     <content src="index.html" />
+    <preference name="android-windowSoftInputMode" value="adjustPan" />
     <preference name="permissions" value="none" />
     <preference name="orientation" value="default" />
     <preference name="target-device" value="universal" />

@@ -436,6 +436,7 @@ function updateGUIState()
 
 
 // THIS IS A HACK TO FIX DISAPPEARING FOOTER WHEN KEYBOARD POPS UP
+/*
 $(document).on('blur', 'input, textarea', function() 
 {
 	if (app.isPhonegap())
@@ -444,3 +445,4 @@ $(document).on('blur', 'input, textarea', function()
 		$(".button-quit,.button-bottom-left").show();
 	}
 });
+*/

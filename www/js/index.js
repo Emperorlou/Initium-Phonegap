@@ -443,7 +443,7 @@ $(document).on('blur', 'input, textarea', function()
 	{
 		setTimeout(function(){
 			if (AndroidFullScreen)
-				AndroidFullScreen.setSystemUiVisibility(AndroidFullScreen.SYSTEM_UI_FLAG_FULLSCREEN | AndroidFullScreen.SYSTEM_UI_FLAG_LOW_PROFILE, successFunction, errorFunction);
+				AndroidFullScreen.setSystemUiVisibility(AndroidFullScreen.SYSTEM_UI_FLAG_FULLSCREEN | AndroidFullScreen.SYSTEM_UI_FLAG_LOW_PROFILE);
 		}, 1);
 	}
 });

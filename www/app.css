@@ -122,6 +122,9 @@ p
 	bottom:0px;
 	right:0px;
 	margin:0px;
+
+	/*Hack to fix disappearing buttons when keyboard pops over them*/
+	transform: translateZ(0);-webkit-transform: translateZ(0);
 }
 
 .button-bottom-left
@@ -130,6 +133,9 @@ p
 	bottom:0px;
 	left:0px;
 	margin:0px;
+
+	/*Hack to fix disappearing buttons when keyboard pops over them*/
+	transform: translateZ(0);-webkit-transform: translateZ(0);
 }
 
 #initialize-status

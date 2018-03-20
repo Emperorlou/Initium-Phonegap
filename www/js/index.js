@@ -236,6 +236,7 @@ var app = {
         {
         	processFailedAjaxCall(data);
         });
+        window.plugins.googleplus.logout();
     },
     
     onDeviceReady: function() {

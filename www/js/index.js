@@ -13,7 +13,7 @@ var app = {
 	loggedIn:null,
 	verifyCode:null,
 	
-	isPhoneGap: function() {
+	isPhonegap: function() {
 		if (window.cordova)
 			return true;
 		else
@@ -22,6 +22,8 @@ var app = {
 	
     initialize: function() {
         this.bindEvents();
+        
+        updateGUIState();
     },
 
     initializeConnection: function()
@@ -41,6 +43,7 @@ var app = {
     	}
     	
         this.checkIfLoggedIn();
+        updateGUIState();
     },
     
     
@@ -66,6 +69,7 @@ var app = {
 						app.serverOnline = true;
 						app.loggedIn = data.loggedIn;
 						app.verifyCode = data.verifyCode;
+				        updateGUIState();
 						
 						if (app.loggedIn)
 						{
@@ -90,7 +94,7 @@ var app = {
     
     onOAuthLogin: function()
     {
-    	if (app.isPhoneGap()==false)
+    	if (app.isPhonegap()==false)
 		{
     		window.location.href = "https://www.playinitium.com/ServletUserControl?suctype=oauth&authType=google";
 		}
@@ -103,6 +107,7 @@ var app = {
     	}
     	else
     		alert("Game is still initializing, please wait...\nIf you keep getting this message, check your internet connection.");
+        updateGUIState();
     },
     
     
@@ -121,7 +126,8 @@ var app = {
         	app.serverOnline = true;
         	app.loggedIn = data.loggedIn;
         	app.verifyCode = data.verifyCode;
-        	
+            updateGUIState();
+
         	if (app.loggedIn)
     		{
         		app.showLaunchPage();
@@ -155,6 +161,7 @@ var app = {
         	app.serverOnline = true;
         	app.loggedIn = data.loggedIn;
         	app.verifyCode = data.verifyCode;
+            updateGUIState();
         	
         	if (app.loggedIn)
     		{
@@ -167,31 +174,7 @@ var app = {
         })
         .fail(function(data)
         {
-        	if (data.status==500)
-        	{
-        		app.internetOnline = true;
-        		app.serverOnline = false;
-        		app.loggedIn = null;
-        		
-        		setConnectionError("Unable to login to game server. The server had an internal error. Sorry about this!");
-        	}
-        	else if (data.status>0)
-        	{
-        		app.internetOnline = true;
-        		app.serverOnline = false;
-        		app.loggedIn = null;
-        		
-        		setConnectionError("Unable to connect to game server. The server had an error and may be down.");
-        	}
-        	else
-        	{
-        		app.internetOnline = false;
-        		app.serverOnline = null;
-        		app.loggedIn = null;
-        		
-        		setConnectionError("Unable to connect to game server. Your internet may be unstable or something may be blocking the connection to our servers. Try disabling wifi?");
-        	}
-        	
+        	processFailedAjaxCall(data);        	
         });
     	
     },
@@ -221,7 +204,7 @@ var app = {
     
     
     enterGame: function(){
-    	if (app.isPhoneGap()==false)
+    	if (app.isPhonegap()==false)
 		{
     		window.location.href = "https://www.playinitium.com/main.jsp";
 		}
@@ -245,31 +228,13 @@ var app = {
         	app.serverOnline = true;
         	app.loggedIn = false;
         	app.verifyCode = null
+            updateGUIState();
         	
     		app.showLoginPage();
         })
         .fail(function(data)
         {
-        	if (data.status==500)
-        	{
-        		alert("There was a server error when attempting to logout. A server log of the error has been generated.");
-    		}
-        	else if (data.status>0)
-        	{
-        		app.internetOnline = true;
-        		app.serverOnline = false;
-        		app.loggedIn = null;
-        		
-        		setConnectionError("Unable to connect to game server. The server may be down.");
-        	}
-        	else
-        	{
-        		app.internetOnline = false;
-        		app.serverOnline = null;
-        		app.loggedIn = null;
-        		
-        		setConnectionError("Unable to connect to game server. Your internet may be unstable or something may be blocking the connection to our servers. Try disabling wifi?");
-        	}
+        	processFailedAjaxCall(data);
         });
     },
     
@@ -355,4 +320,21 @@ function processFailedAjaxCall(data)
 		
 		setConnectionError("Unable to connect to game server. Your internet may be unstable or something may be blocking the connection to our servers. Try disabling wifi?");
 	}
+
+	updateGUIState();
+}
+
+function updateGUIState()
+{
+	var body = $("body");
+	body.removeClass();
+	
+	if (app.isPhonegap()==true)
+		body.addClass("state-phonegap");
+	if (app.internetOnline==true)
+		body.addClass("state-internetOnline");
+	if (app.serverOnline==true)
+		body.addClass("state-serverOnline");
+	if (app.loggedIn==true)
+		body.addClass("state-loggedIn");
 }

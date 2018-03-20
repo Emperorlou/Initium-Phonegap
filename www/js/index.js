@@ -441,9 +441,9 @@ $(document).on('blur', 'input, textarea', function()
 	
 	if (app.isPhonegap())
 	{
-		$(".menu-panel-container").css("height", "99%").css("width", "99%");
 		setTimeout(function(){
-			$(".menu-panel-container").css("height", "100%").css("width", "100%");
-		}, 1200);
+			if (AndroidFullScreen)
+				AndroidFullScreen.setSystemUiVisibility(AndroidFullScreen.SYSTEM_UI_FLAG_FULLSCREEN | AndroidFullScreen.SYSTEM_UI_FLAG_LOW_PROFILE, successFunction, errorFunction);
+		}, 1);
 	}
 });

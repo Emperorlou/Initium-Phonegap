@@ -35,6 +35,7 @@
     <gap:plugin name="cordova-plugin-googleplus" source="npm">
         <param name="REVERSED_CLIENT_ID" value="myreversedclientid" />
     </gap:plugin>
+    <gap:plugin name="com.toluhta.immersify" spec="0.1.0" source="pgb" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />

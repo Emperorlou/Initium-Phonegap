@@ -271,6 +271,7 @@ var app = {
         		setConnectionError("Unable to connect to game server. Your internet may be unstable or something may be blocking the connection to our servers. Try disabling wifi?");
         	}
         });
+        window.plugins.googleplus.logout();
     },
     
     onDeviceReady: function() {

@@ -127,6 +127,22 @@ p
 	margin:5px;
 }
 
+.button-quit
+{
+	position:fixed;
+	bottom:0px;
+	right:0px;
+	margin:0px;
+}
+
+.button-bottom-left
+{
+	position:fixed;
+	bottom:0px;
+	left:0px;
+	margin:0px;
+}
+
 #initialize-status
 {
 	font-size:20px;
@@ -316,5 +332,11 @@ p
 	    max-height: 40px;
 	}
 	
+	.button-quit img
+	{
+	    height: auto;
+	    width: auto;
+		max-height:40px;
+	}
 	
 }

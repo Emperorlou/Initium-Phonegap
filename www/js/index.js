@@ -179,6 +179,42 @@ var app = {
     	
     },
     
+    doClassicSignup: function()
+    {
+    	var characterName = $("#signup-characterName").val();
+    	var email = $("#signup-email").val();
+    	var password = $("#signup-password").val();
+        $.post("https://www.playinitium.com/ServletUserControl?suctype=signup", {suctype:"signup", characterName:characterName, email:email, password:password, ajax:true})
+        .done(function(data)
+        {
+      	  	if (data.error)
+  	  		{
+      	  		$("#login-error-message").text(data.error);
+      	  		return;
+  	  		}
+  	  		$("#login-error-message").text("");
+        	app.internetOnline = true;
+        	app.serverOnline = true;
+        	app.loggedIn = data.loggedIn;
+        	app.verifyCode = data.verifyCode;
+            updateGUIState();
+        	
+        	if (app.loggedIn)
+    		{
+        		app.showLaunchPage();
+    		}
+        	else
+    		{
+        		app.showLoginPage();
+    		}
+        })
+        .fail(function(data)
+        {
+        	processFailedAjaxCall(data);        	
+        });
+    	
+    },
+    
     showLoginPage: function()
     {
     	$(".menu-panel").hide();

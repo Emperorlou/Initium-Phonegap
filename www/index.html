@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width"/> 
     <!--<meta name="viewport" content="width=device-width, height=device-height, target-densitydpi=device-dpi" />-->
     <link rel="stylesheet" type="text/css" href="MiniUP.css" />
-    <link rel="stylesheet" type="text/css" href="app.css?v=22"/>
+    <link rel="stylesheet" type="text/css" href="app.css?v=24"/>
     <title>Initium</title>
     
     <script type="text/javascript" src="js/jquery.min.js"></script> 
@@ -108,27 +108,24 @@
 				
 				<div class='centering-container menu-contents-container'>
 					<div class='menu-contents' style='margin-top:-42%'>
-					<form action='' method='POST' class='single-post-form' id='signup-form'>
 						<input type='hidden' name='new' value='true'/>
 						<input type='hidden' name='type' value='signup'/>
 						<div class='main-textbox2'>
-							<input type='text' name='characterName'  value='' placeholder='Character name'/>
+							<input id='classic-signup-characterName' type='text' name='characterName'  value='' placeholder='Character name'/>
 						</div>
 						<div class='main-textbox2'>
-							<input type='email' name='email'  value='' placeholder='Email address'/>
+							<input id='classic-signup-email' type='email' name='email'  value='' placeholder='Email address'/>
 						</div>
 						<div class='main-textbox2'>
-							<input type='password' name='password'  value='' placeholder='Password'/>
+							<input id='classic-signup-password' type='password' name='password'  value='' placeholder='Password'/>
 						</div>
 						<div class="">
-							<a onclick='$("#signup-form").submit();' title='Click here to login after you`ve filled out everything'><img class='standard-button-highlight' alt='Signup' src='images/ui3/signupbutton1.png'/></a>
+							<a onclick='app.doClassicSignup();' title='Click here to login after you`ve filled out everything'><img class='standard-button-highlight' alt='Signup' src='images/ui3/signupbutton1.png'/></a>
 						</div>
 						
-						<input type='submit' style='display:none'/> 
-					</form>
 					<p>OR</p>
 					<p><a onclick='app.onAjaxOAuthLogin()'><img class='standard-button-highlight' src='images/ui3/signup-using-google1.png' border=0/></a></p>
-		    		<p><a class='menu-panel-back-button standard-button-highlight' onclick='app.showLoginPage()'><img src='images/ui3/button-back1.png'/></a></p>
+		    		<p class='button-bottom-left'><a class='menu-panel-back-button standard-button-highlight' onclick='app.showLoginPage()'><img src='images/ui3/button-back1.png'/></a></p>
 					</div>
 				</div>
 	    	</div>
@@ -152,18 +149,19 @@
 						<div class="">
 							<a onclick='app.doClassicLogin()' title='Click here to login after you`ve filled out everything'><img class='standard-button-highlight' src='images/ui3/loginbutton1.png'/></a>
 						</div>
+						<p class='button-bottom-left'><a onclick='app.doResetPassword()'><img class='standard-button-highlight' alt='Reset password' src='images/ui3/button-reset-password1.png' border=0/></a></p>
 
 
 						<p>OR</p>
 						<p><a onclick='app.onAjaxOAuthLogin()'><img class='standard-button-highlight' alt='Login using Google' src='images/ui3/login-using-google1.png' border=0/></a></p>
 						<p><a onclick='app.showSignupPage()'><img class='standard-button-highlight' alt='Create a new account' src='images/ui3/button-create-a-new-account1.png' border=0/></a></p>
-			    		<p><a class='menu-panel-back-button standard-button-highlight' onclick='app.exitFromApp()'><img src='images/ui3/button-quit1.png'/></a></p>
 					</div>
 				</div>
 	    	</div>
 		    
-		    	
+ 		    	
 	    </div>
+   		<p class='button-quit'><a class='menu-panel-back-button standard-button-highlight' onclick='app.exitFromApp()'><img src='images/ui3/button-quit1.png'/></a></p>
 	</div>
     <!-- <p style='color:#999; display:inline-block; position:absolute; bottom:0px;left:0px;'><a onclick='app.onAjaxOAuthLogin();'>Test</a></p> -->
     <!-- <p style='color:#999; display:inline-block; position:absolute; bottom:0px;right:0px;'><a href='test.html'>Debug</a></p> -->

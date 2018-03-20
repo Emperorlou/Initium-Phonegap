@@ -432,3 +432,15 @@ function updateGUIState()
 	clearErrorMessages();
 
 }
+
+
+
+// THIS IS A HACK TO FIX DISAPPEARING FOOTER WHEN KEYBOARD POPS UP
+$(document).on('blur', 'input, textarea', function() 
+{
+	if (app.isPhonegap())
+	{
+		$(".button-quit,.button-bottom-left").hide();
+		$(".button-quit,.button-bottom-left").show();
+	}
+});

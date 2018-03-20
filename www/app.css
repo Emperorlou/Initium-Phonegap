@@ -255,13 +255,28 @@ p
 	outline:none;
 }
 
-#login-error-message
+.onpage-error
 {
 	color: #FF3333;
     font-size: 15px;
-    margin: 0px;	
+    margin: 0px;
+    max-width: 50%;
+    margin-left: 25%;	
 }
 
+.onpage-message
+{
+    font-size: 15px;
+    margin: 0px;
+    max-width: 50%;
+    margin-left: 25%;	
+}
+
+#logged-in-email
+{
+	max-width: 70%;
+    text-align: left;	
+}
 
 
 
@@ -325,18 +340,11 @@ p
 
 @media (max-height:500px)
 {
-	.menu-contents * a img
+	.appbutton1
 	{
 	    height: auto;
 	    width: auto;
 	    max-height: 40px;
-	}
-	
-	.button-quit img
-	{
-	    height: auto;
-	    width: auto;
-		max-height:40px;
 	}
 	
 }

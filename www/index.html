@@ -95,8 +95,9 @@
 				<div class='centering-container menu-contents-container'>
 					<div class='menu-contents' style='margin-top:-42%'>
 					<p><a onclick='app.enterGame()'><img class='standard-button-highlight' src='images/ui3/button-enter-the-game1.png' border=0/></a></p>
-		    		<p><a class='menu-panel-back-button standard-button-highlight' onclick='app.showSoundtrackPage()'><img src='images/ui3/button-soundtrack1.png'/></a></p>
-		    		<p><a class='menu-panel-back-button standard-button-highlight' onclick='app.logout()'><img src='images/ui3/button-logout1.png'/></a></p>
+		    		<p><a class='menu-panel-back-button appbutton1 appbutton1 standard-button-highlight' onclick='app.showSoundtrackPage()'><img src='images/ui3/button-soundtrack1.png'/></a></p>
+		    		<p><a class='menu-panel-back-button appbutton1 appbutton1 standard-button-highlight' onclick='app.logout()'><img src='images/ui3/button-logout1.png'/></a></p>
+		    		<p id='logged-in-email' class='button-bottom-left' style='max-width: 70%; text-align: left;'></p>
 					</div>
 				</div>
 	    	</div>
@@ -110,22 +111,43 @@
 					<div class='menu-contents' style='margin-top:-42%'>
 						<input type='hidden' name='new' value='true'/>
 						<input type='hidden' name='type' value='signup'/>
+						<p id='signup-error-message' class='onpage-error'></p>
 						<div class='main-textbox2'>
-							<input id='classic-signup-characterName' type='text' name='characterName'  value='' placeholder='Character name'/>
+							<input id='signup-characterName' type='text' name='characterName'  value='' placeholder='Character name'/>
 						</div>
 						<div class='main-textbox2'>
-							<input id='classic-signup-email' type='email' name='email'  value='' placeholder='Email address'/>
+							<input id='signup-email' type='email' name='email'  value='' placeholder='Email address'/>
 						</div>
 						<div class='main-textbox2'>
-							<input id='classic-signup-password' type='password' name='password'  value='' placeholder='Password'/>
+							<input id='signup-password' type='password' name='password'  value='' placeholder='Password'/>
 						</div>
 						<div class="">
-							<a onclick='app.doClassicSignup();' title='Click here to login after you`ve filled out everything'><img class='standard-button-highlight' alt='Signup' src='images/ui3/signupbutton1.png'/></a>
+							<a onclick='app.doClassicSignup();' title='Click here to login after you`ve filled out everything'><img class='appbutton1 appbutton1 standard-button-highlight' alt='Signup' src='images/ui3/signupbutton1.png'/></a>
 						</div>
 						
 					<p>OR</p>
-					<p><a onclick='app.onAjaxOAuthLogin()'><img class='standard-button-highlight' src='images/ui3/signup-using-google1.png' border=0/></a></p>
-		    		<p class='button-bottom-left'><a class='menu-panel-back-button standard-button-highlight' onclick='app.showLoginPage()'><img src='images/ui3/button-back1.png'/></a></p>
+					<p><a onclick='app.onAjaxOAuthLogin()'><img class='appbutton1 appbutton1 standard-button-highlight' src='images/ui3/signup-using-google1.png' border=0/></a></p>
+		    		<p class='button-bottom-left'><a class='menu-panel-back-button' onclick='app.showLoginPage()'><img class='appbutton1 standard-button-highlight' src='images/ui3/button-back1.png'/></a></p>
+					</div>
+				</div>
+	    	</div>
+		    	
+	    	<div id='reset-password-panel' class='menu-panel' style='display:none;'>
+	        	<div class='centering-container' style='top:6%'>
+					<div class='landing-logo'><img src="images/ui3/logo3.png"></div>
+				</div>
+				
+				<div class='centering-container menu-contents-container'>
+					<div class='menu-contents' style='margin-top:-42%'>
+						<p id='reset-password-error-message' class='onpage-error'></p>
+						<div class='main-textbox2'>
+							<input id='reset-password-email' type='email' name='email'  value='' placeholder='Email address'/>
+						</div>
+						<div class="">
+							<a onclick='app.doResetPassword();' ><img class='appbutton1 appbutton1 standard-button-highlight' alt='Reset Password' src='images/ui3/button-reset-password1.png'/></a>
+						</div>
+						<p id='reset-password-message' class='onpage-message'></p>
+			    		<p class='button-bottom-left'><a class='menu-panel-back-button' onclick='$("#reset-password-message").text(""); app.showLoginPage()'><img class='appbutton1 standard-button-highlight' src='images/ui3/button-back1.png'/></a></p>
 					</div>
 				</div>
 	    	</div>
@@ -139,7 +161,7 @@
 					<div class='menu-contents' style='margin-top:-42%'>
 						<input type='hidden' name='new' value='true'/>
 						<input type='hidden' name='type' value='login'/>
-						<p id='login-error-message' class='error'></p>
+						<p id='login-error-message' class='onpage-error'></p>
 						<div class='main-textbox2'>
 							<input id='login-email' type='email' name='email'  value='' placeholder='Email address'/>
 						</div>
@@ -147,21 +169,21 @@
 							<input id='login-password' type='password' name='password'  value='' placeholder='Password'/>
 						</div>
 						<div class="">
-							<a onclick='app.doClassicLogin()' title='Click here to login after you`ve filled out everything'><img class='standard-button-highlight' src='images/ui3/loginbutton1.png'/></a>
+							<a onclick='app.doClassicLogin()' title='Click here to login after you`ve filled out everything'><img class='appbutton1 standard-button-highlight' src='images/ui3/loginbutton1.png'/></a>
 						</div>
-						<p class='button-bottom-left'><a onclick='app.doResetPassword()'><img class='standard-button-highlight' alt='Reset password' src='images/ui3/button-reset-password1.png' border=0/></a></p>
+						<p class='button-bottom-left'><a onclick='app.showResetPasswordPage()'><img class='appbutton1 standard-button-highlight' alt='Reset password' src='images/ui3/button-reset-password1.png' border=0/></a></p>
 
 
 						<p>OR</p>
-						<p><a onclick='app.onAjaxOAuthLogin()'><img class='standard-button-highlight' alt='Login using Google' src='images/ui3/login-using-google1.png' border=0/></a></p>
-						<p><a onclick='app.showSignupPage()'><img class='standard-button-highlight' alt='Create a new account' src='images/ui3/button-create-a-new-account1.png' border=0/></a></p>
+						<p><a onclick='app.onAjaxOAuthLogin()'><img class='appbutton1 standard-button-highlight' alt='Login using Google' src='images/ui3/login-using-google1.png' border=0/></a></p>
+						<p><a onclick='app.showSignupPage()'><img class='appbutton1 standard-button-highlight' alt='Create a new account' src='images/ui3/button-create-a-new-account1.png' border=0/></a></p>
 					</div>
 				</div>
 	    	</div>
 		    
  		    	
 	    </div>
-   		<p class='button-quit'><a class='menu-panel-back-button standard-button-highlight' onclick='app.exitFromApp()'><img src='images/ui3/button-quit1.png'/></a></p>
+   		<p class='button-quit'><a class='menu-panel-back-button' onclick='app.exitFromApp()'><img class='appbutton1 standard-button-highlight' src='images/ui3/button-quit1.png'/></a></p>
 	</div>
     <!-- <p style='color:#999; display:inline-block; position:absolute; bottom:0px;left:0px;'><a onclick='app.onAjaxOAuthLogin();'>Test</a></p> -->
     <!-- <p style='color:#999; display:inline-block; position:absolute; bottom:0px;right:0px;'><a href='test.html'>Debug</a></p> -->

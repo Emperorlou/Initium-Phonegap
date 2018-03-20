@@ -11,6 +11,7 @@ var app = {
 	internetOnline:null,
 	serverOnline:null,
 	loggedIn:null,
+	loggedInEmail:null,
 	verifyCode:null,
 	
 	isPhonegap: function() {
@@ -33,6 +34,7 @@ var app = {
     	
     	this.internetOnline = null;
     	this.loggedIn = null;
+    	this.loggedInEmail = null;
     	
     	this.internetConnected = window.navigator.onLine;
     	
@@ -54,6 +56,7 @@ var app = {
 
     onAjaxOAuthLogin: function()
     {
+        window.plugins.googleplus.logout();
         window.plugins.googleplus.login(
 				window.loginConfig,
 				function (obj) {
@@ -64,7 +67,7 @@ var app = {
 			      	  		$("#login-error-message").text(data.error);
 			      	  		return;
 			  	  		}
-			  	  		$("#login-error-message").text("");
+			  	  		clearErrorMessages();
 						app.internetOnline = true;
 						app.serverOnline = true;
 						app.loggedIn = data.loggedIn;
@@ -125,6 +128,7 @@ var app = {
         	app.internetOnline = true;
         	app.serverOnline = true;
         	app.loggedIn = data.loggedIn;
+        	app.loggedInEmail = data.loggedInEmail;
         	app.verifyCode = data.verifyCode;
             updateGUIState();
 
@@ -146,6 +150,8 @@ var app = {
     
     doClassicLogin: function()
     {
+    	clearErrorMessages();
+  		
     	var email = $("#login-email").val();
     	var password = $("#login-password").val();
         $.post("https://www.playinitium.com/ServletUserControl?suctype=login", {suctype:"login", email:email, password:password, ajax:true})
@@ -156,10 +162,11 @@ var app = {
       	  		$("#login-error-message").text(data.error);
       	  		return;
   	  		}
-  	  		$("#login-error-message").text("");
+      	  	clearErrorMessages();
         	app.internetOnline = true;
         	app.serverOnline = true;
         	app.loggedIn = data.loggedIn;
+        	app.loggedInEmail = data.loggedInEmail;
         	app.verifyCode = data.verifyCode;
             updateGUIState();
         	
@@ -181,6 +188,7 @@ var app = {
     
     doClassicSignup: function()
     {
+    	clearErrorMessages();
     	var characterName = $("#signup-characterName").val();
     	var email = $("#signup-email").val();
     	var password = $("#signup-password").val();
@@ -189,13 +197,14 @@ var app = {
         {
       	  	if (data.error)
   	  		{
-      	  		$("#login-error-message").text(data.error);
+      	  		$("#signup-error-message").text(data.error);
       	  		return;
   	  		}
-  	  		$("#login-error-message").text("");
+      	  	clearErrorMessages();
         	app.internetOnline = true;
         	app.serverOnline = true;
         	app.loggedIn = data.loggedIn;
+        	app.loggedInEmail = data.loggedInEmail;
         	app.verifyCode = data.verifyCode;
             updateGUIState();
         	
@@ -203,16 +212,44 @@ var app = {
     		{
         		app.showLaunchPage();
     		}
-        	else
-    		{
-        		app.showLoginPage();
-    		}
         })
         .fail(function(data)
         {
         	processFailedAjaxCall(data);        	
         });
     	
+    },
+    
+    doResetPassword: function()
+    {
+    	clearErrorMessages();
+    	var email = $("#reset-password-email").val();
+        $.post("https://www.playinitium.com/ServletUserControl?suctype=resetPassword", {suctype:"resetPassword", email:email, ajax:true})
+        .done(function(data)
+        {
+      	  	if (data.error)
+  	  		{
+      	  		$("#resetpassword-error-message").text(data.error);
+      	  		return;
+  	  		}
+      	  	clearErrorMessages();
+      	  	
+      	  	$("#reset-password-message").text("An email has been sent to "+email+". Please check that email's inbox for password reset instructions. If you haven't received anything yet, be sure to check your spam folder.");
+      	  	
+            updateGUIState();
+        	
+        })
+        .fail(function(data)
+        {
+        	processFailedAjaxCall(data);        	
+        });
+    	
+    },
+    
+    showResetPasswordPage: function()
+    {
+    	$(".menu-panel").hide();
+    	$("#reset-password-panel").show();
     },
     
     showLoginPage: function()
@@ -263,6 +300,7 @@ var app = {
         	app.internetOnline = true;
         	app.serverOnline = true;
         	app.loggedIn = false;
+        	app.loggedInEmail = null;
         	app.verifyCode = null
             updateGUIState();
         	
@@ -338,6 +376,7 @@ function processFailedAjaxCall(data)
 		app.internetOnline = true;
 		app.serverOnline = false;
 		app.loggedIn = null;
+		app.loggedInEmail = null;
 		
 		setConnectionError("The game server failed to process your command. The server had an internal error. Sorry about this!");
 	}
@@ -346,6 +385,7 @@ function processFailedAjaxCall(data)
 		app.internetOnline = true;
 		app.serverOnline = false;
 		app.loggedIn = null;
+		app.loggedInEmail = null;
 		
 		setConnectionError("Unable to connect to game server. The server had an error and may be down.");
 	}
@@ -354,11 +394,19 @@ function processFailedAjaxCall(data)
 		app.internetOnline = false;
 		app.serverOnline = null;
 		app.loggedIn = null;
+		app.loggedInEmail = data.loggedInEmail;
 		
 		setConnectionError("Unable to connect to game server. Your internet may be unstable or something may be blocking the connection to our servers. Try disabling wifi?");
 	}
 
 	updateGUIState();
+}
+
+function clearErrorMessages()
+{
+	$("#login-error-message").text("");
+	$("#signup-error-message").text("");
+	$("#reset-password-error-message").text("");
 }
 
 function updateGUIState()
@@ -374,4 +422,13 @@ function updateGUIState()
 		body.addClass("state-serverOnline");
 	if (app.loggedIn==true)
 		body.addClass("state-loggedIn");
+	
+	
+	if (app.loggedInEmail!=null)
+		$("#logged-in-email").text("Logged in as "+app.loggedInEmail);
+	if (app.loggedInEmail==null)
+		$("#logged-in-email").text("");
+	
+	clearErrorMessages();
+
 }

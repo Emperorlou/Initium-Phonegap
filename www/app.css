@@ -118,17 +118,17 @@ p
 
 .button-quit
 {
-	position:fixed;
+	position:absolute;
 	bottom:0px;
-	right:1%;
+	right:0%;
 	margin:0px;
 }
 
 .button-bottom-left
 {
-	position:fixed;
+	position:absolute;
 	bottom:0px;
-	left:1%;
+	left:0%;
 	margin:0px;
 }
 

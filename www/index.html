@@ -97,9 +97,9 @@
 					<p><a onclick='app.enterGame()'><img class='standard-button-highlight' src='images/ui3/button-enter-the-game1.png' border=0/></a></p>
 		    		<p><a class='menu-panel-back-button appbutton1 appbutton1 standard-button-highlight' onclick='app.showSoundtrackPage()'><img src='images/ui3/button-soundtrack1.png'/></a></p>
 		    		<p><a class='menu-panel-back-button appbutton1 appbutton1 standard-button-highlight' onclick='app.logout()'><img src='images/ui3/button-logout1.png'/></a></p>
-		    		<p id='logged-in-email' class='button-bottom-left' style='max-width: 70%; text-align: left;'></p>
 					</div>
 				</div>
+	    		<p id='logged-in-email' class='button-bottom-left' style='max-width: 70%; text-align: left;'></p>
 	    	</div>
 		    	
 	    	<div id='signup-panel' class='menu-panel' style='display:none;'>
@@ -127,9 +127,9 @@
 						
 					<p>OR</p>
 					<p><a onclick='app.onAjaxOAuthLogin()'><img class='appbutton1 appbutton1 standard-button-highlight' src='images/ui3/signup-using-google1.png' border=0/></a></p>
-		    		<p class='button-bottom-left'><a class='menu-panel-back-button' onclick='app.showLoginPage()'><img class='appbutton1 standard-button-highlight' src='images/ui3/button-back1.png'/></a></p>
 					</div>
 				</div>
+	    		<p class='button-bottom-left'><a class='menu-panel-back-button' onclick='app.showLoginPage()'><img class='appbutton1 standard-button-highlight' src='images/ui3/button-back1.png'/></a></p>
 	    	</div>
 		    	
 	    	<div id='reset-password-panel' class='menu-panel' style='display:none;'>
@@ -147,9 +147,9 @@
 							<a onclick='app.doResetPassword();' ><img class='appbutton1 appbutton1 standard-button-highlight' alt='Reset Password' src='images/ui3/button-reset-password1.png'/></a>
 						</div>
 						<p id='reset-password-message' class='onpage-message'></p>
-			    		<p class='button-bottom-left'><a class='menu-panel-back-button' onclick='$("#reset-password-message").text(""); app.showLoginPage()'><img class='appbutton1 standard-button-highlight' src='images/ui3/button-back1.png'/></a></p>
 					</div>
 				</div>
+	    		<p class='button-bottom-left'><a class='menu-panel-back-button' onclick='$("#reset-password-message").text(""); app.showLoginPage()'><img class='appbutton1 standard-button-highlight' src='images/ui3/button-back1.png'/></a></p>
 	    	</div>
 		    	
 	    	<div id='login-panel' class='menu-panel' style='display:none;'>
@@ -171,7 +171,6 @@
 						<div class="">
 							<a onclick='app.doClassicLogin()' title='Click here to login after you`ve filled out everything'><img class='appbutton1 standard-button-highlight' src='images/ui3/loginbutton1.png'/></a>
 						</div>
-						<p class='button-bottom-left'><a onclick='app.showResetPasswordPage()'><img class='appbutton1 standard-button-highlight' alt='Reset password' src='images/ui3/button-reset-password1.png' border=0/></a></p>
 
 
 						<p>OR</p>
@@ -179,6 +178,7 @@
 						<p><a onclick='app.showSignupPage()'><img class='appbutton1 standard-button-highlight' alt='Create a new account' src='images/ui3/button-create-a-new-account1.png' border=0/></a></p>
 					</div>
 				</div>
+				<p class='button-bottom-left'><a onclick='app.showResetPasswordPage()'><img class='appbutton1 standard-button-highlight' alt='Reset password' src='images/ui3/button-reset-password1.png' border=0/></a></p>
 	    	</div>
 		    
  		    	

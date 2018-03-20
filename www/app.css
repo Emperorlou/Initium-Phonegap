@@ -17,7 +17,7 @@ select:-webkit-autofill:focus {
   color:#FFFF00;
 }
 */
-html, body {height:100%;overflow:auto;}
+html, body {height:100%;width:100%;overflow:hidden;}
 body {
     -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
     -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
@@ -122,10 +122,6 @@ p
 	bottom:0px;
 	right:0px;
 	margin:0px;
-	z-order:1;
-
-	/*Hack to fix disappearing buttons when keyboard pops over them*/
-	transform: translateZ(0);-webkit-transform: translateZ(0);
 }
 
 .button-bottom-left
@@ -134,10 +130,6 @@ p
 	bottom:0px;
 	left:0px;
 	margin:0px;
-	z-order:1;
-
-	/*Hack to fix disappearing buttons when keyboard pops over them*/
-	transform: translateZ(0);-webkit-transform: translateZ(0);
 }
 
 #initialize-status

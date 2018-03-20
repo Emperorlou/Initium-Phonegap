@@ -441,9 +441,9 @@ $(document).on('blur', 'input, textarea', function()
 	
 	if (app.isPhonegap())
 	{
-		$(".button-quit,.button-bottom-left").hide();
+		$(".button-quit,.button-bottom-left").css("color", "").css("z-index", "");
 		setTimeout(function(){
-			$(".button-quit,.button-bottom-left").show();
-		}, 1);
+			$(".button-quit,.button-bottom-left").css("color", "#000000").css("z-index", 2);
+		}, 1200);
 	}
 });

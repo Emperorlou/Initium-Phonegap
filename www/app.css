@@ -120,7 +120,7 @@ p
 {
 	position:absolute;
 	bottom:0px;
-	right:0px;
+	right:50px;
 	margin:0px;
 	z-index:2;
 }
@@ -129,7 +129,7 @@ p
 {
 	position:absolute;
 	bottom:0px;
-	left:0px;
+	left:50px;
 	margin:0px;
 	z-index:2;
 }

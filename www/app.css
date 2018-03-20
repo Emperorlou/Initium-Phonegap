@@ -17,7 +17,7 @@ select:-webkit-autofill:focus {
   color:#FFFF00;
 }
 */
-
+html, body {height:100%;overflow:auto;}
 body {
     -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
     -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
@@ -25,17 +25,6 @@ body {
     background-color:#000000;
 }
 
-
- 
-
-
-
-
-
-body
-{
-	
-}
 
 p
 {

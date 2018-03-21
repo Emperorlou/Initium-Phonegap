@@ -27,6 +27,7 @@
     <preference name="phonegap-version" value="cli-7.1.0" />
     <preference name="SplashScreen" value="icon.png" />
 	<plugin name="cordova-plugin-file" spec="~4.3.3" />
+	<plugin name="cordova-plugin-navigationbar" source="npm"/>
     <gap:plugin name="cordova-plugin-inappbrowser" source="npm" />
     <gap:plugin name="cordova-plugin-whitelist" source="npm" />
     <gap:plugin name="cc.fovea.cordova.purchase" source="npm" version="6.0.0">

@@ -444,11 +444,11 @@ $(document).on('blur', 'input, textarea', function()
 	if (app.isPhonegap())
 	{
 		
-		setTimeout(function(){
-			window.navigationbar.show();
-			window.navigationbar.hide();
+//		setTimeout(function(){
+//			window.navigationbar.show();
+//			window.navigationbar.hide();
 //			if (AndroidFullScreen)
 //				AndroidFullScreen.setSystemUiVisibility(AndroidFullScreen.SYSTEM_UI_FLAG_FULLSCREEN | AndroidFullScreen.SYSTEM_UI_FLAG_LOW_PROFILE);
-		}, 800);
+//		}, 800);
 	}
 });

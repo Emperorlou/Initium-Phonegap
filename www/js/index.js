@@ -441,11 +441,11 @@ $(document).on('blur', 'input, textarea', function()
 	
 	if (app.isPhonegap())
 	{
-		window.navigationbar.hide();
-		window.navigationbar.show();
-//		setTimeout(function(){
+		
+		setTimeout(function(){
+			window.navigationbar.hide();
 //			if (AndroidFullScreen)
 //				AndroidFullScreen.setSystemUiVisibility(AndroidFullScreen.SYSTEM_UI_FLAG_FULLSCREEN | AndroidFullScreen.SYSTEM_UI_FLAG_LOW_PROFILE);
-//		}, 1);
+		}, 1);
 	}
 });

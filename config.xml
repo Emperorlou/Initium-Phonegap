@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.playinitium" version="1.0.16" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+<widget id="com.playinitium" version="1.0.17" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
     <name>Initium</name>
     <description>
         Initium is a MMORPG browser-based game made by Redditors. Often touted as one of the best games to play while at work/school. It's like a regular MMORPG but made from photographs, complete with Diablo-like loot, monsters, dungeons, and server-wide events.
@@ -34,7 +34,7 @@
         <param name="BILLING_KEY" value="MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA2g3Dw6JGYAcMvSt8xeeiJDGJlKnodGYZjadE8FjC1eY7mKWh+0Yt/CZDFDAsIZL7yhiykDzHtfFpmrbLXrHhT96d9HUzI7iAFDR/yNYI4QPI6sR4TApdq+r75Q7TGqzdpR3hQ+tX0iUM29AGE7FRm/FF+B+F3c8hy3wL6wAh6BIJ/edZ5p9UGyFz1DRiPKnruY8rNtnp3uYe5Tkb/VMjNbGTqiGRZaLVP04gflZPLK5ApR2yt9h2xDzyd+75isJkETB/D2W/b1S/7r8DiWyqpw4RI1e52CGF1tJpvKFcmk0pHC2AcmKuLiC00MvZ2flLcts1NGztxTDJv2/oaP/uEQIDAQAB" />
     </gap:plugin>
     <gap:plugin name="cordova-plugin-googleplus" source="npm">
-        <param name="REVERSED_CLIENT_ID" value="myreversedclientid" />
+        <param name="REVERSED_CLIENT_ID" value="com.googleusercontent.apps.236957303251-83rr9gcnddjfcgkm35a2o70rf2rvfq2d" />
     </gap:plugin>
     <access origin="*" />
     <allow-intent href="http://*/*" />

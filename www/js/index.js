@@ -445,9 +445,10 @@ $(document).on('blur', 'input, textarea', function()
 	{
 		
 		setTimeout(function(){
+			window.navigationbar.show();
 			window.navigationbar.hide();
 //			if (AndroidFullScreen)
 //				AndroidFullScreen.setSystemUiVisibility(AndroidFullScreen.SYSTEM_UI_FLAG_FULLSCREEN | AndroidFullScreen.SYSTEM_UI_FLAG_LOW_PROFILE);
-		}, 1500);
+		}, 800);
 	}
 });

@@ -129,6 +129,7 @@ var app = {
         	app.serverOnline = true;
         	app.loggedIn = data.loggedIn;
         	app.loggedInEmail = data.loggedInEmail;
+    		app.characterName = data.characterName;
         	app.verifyCode = data.verifyCode;
             updateGUIState();
 
@@ -167,6 +168,7 @@ var app = {
         	app.serverOnline = true;
         	app.loggedIn = data.loggedIn;
         	app.loggedInEmail = data.loggedInEmail;
+    		app.characterName = data.characterName;
         	app.verifyCode = data.verifyCode;
             updateGUIState();
         	
@@ -205,6 +207,7 @@ var app = {
         	app.serverOnline = true;
         	app.loggedIn = data.loggedIn;
         	app.loggedInEmail = data.loggedInEmail;
+    		app.characterName = data.characterName;
         	app.verifyCode = data.verifyCode;
             updateGUIState();
         	
@@ -237,6 +240,42 @@ var app = {
       	  	$("#reset-password-message").text("An email has been sent to "+email+". Please check that email's inbox for password reset instructions. If you haven't received anything yet, be sure to check your spam folder.");
       	  	
             updateGUIState();
+        	
+        })
+        .fail(function(data)
+        {
+        	processFailedAjaxCall(data);        	
+        });
+    	
+    },
+    
+    doNewCharacter: function()
+    {
+    	clearErrorMessages();
+    	var name = $("#new-character-name").val();
+        $.post("https://www.playinitium.com/ServletUserControl?suctype=newCharacter", {suctype:"newCharacter", name:name, ajax:true})
+        .done(function(data)
+        {
+      	  	if (data.error)
+  	  		{
+      	  		$("#new-character-error-message").text(data.error);
+      	  		return;
+  	  		}
+      	  	clearErrorMessages();
+
+        	app.internetOnline = true;
+        	app.serverOnline = true;
+        	app.loggedIn = data.loggedIn;
+        	app.loggedInEmail = data.loggedInEmail;
+    		app.characterName = data.characterName;
+        	app.verifyCode = data.verifyCode;
+      	  	
+            updateGUIState();
+            
+            if (app.loggedIn==false)
+            	app.showLoginPage();
+            else if (app.characterName!=null)
+            	app.showLaunchPage();
         	
         })
         .fail(function(data)
@@ -307,6 +346,7 @@ var app = {
         	app.serverOnline = true;
         	app.loggedIn = false;
         	app.loggedInEmail = null;
+    		app.characterName = null;
         	app.verifyCode = null
             updateGUIState();
         	
@@ -385,6 +425,7 @@ function processFailedAjaxCall(data)
 		app.serverOnline = false;
 		app.loggedIn = null;
 		app.loggedInEmail = null;
+		app.characterName = null;
 		
 		setConnectionError("The game server failed to process your command. The server had an internal error. Sorry about this!");
 	}
@@ -394,6 +435,7 @@ function processFailedAjaxCall(data)
 		app.serverOnline = false;
 		app.loggedIn = null;
 		app.loggedInEmail = null;
+		app.characterName = null;
 		
 		setConnectionError("Unable to connect to game server. The server had an error and may be down.");
 	}
@@ -402,7 +444,8 @@ function processFailedAjaxCall(data)
 		app.internetOnline = false;
 		app.serverOnline = null;
 		app.loggedIn = null;
-		app.loggedInEmail = data.loggedInEmail;
+		app.loggedInEmail = null;
+		app.characterName = null;
 		
 		setConnectionError("Unable to connect to game server. Your internet may be unstable or something may be blocking the connection to our servers. Try disabling wifi?");
 	}
@@ -430,6 +473,8 @@ function updateGUIState()
 		body.addClass("state-serverOnline");
 	if (app.loggedIn==true)
 		body.addClass("state-loggedIn");
+	if (app.characterName!=null)
+		body.addClass("state-characterLive");
 	
 	
 	if (app.loggedInEmail!=null)

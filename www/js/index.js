@@ -246,6 +246,12 @@ var app = {
     	
     },
     
+    showNewCharacterPage: function()
+    {
+    	$(".menu-panel").hide();
+    	$("#new-character-panel").show();
+    },
+    
     showResetPasswordPage: function()
     {
     	$(".menu-panel").hide();

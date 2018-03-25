@@ -12,6 +12,7 @@ var app = {
 	serverOnline:null,
 	loggedIn:null,
 	loggedInEmail:null,
+	characterName:null,
 	verifyCode:null,
 	
 	isPhonegap: function() {
@@ -133,7 +134,12 @@ var app = {
         	app.verifyCode = data.verifyCode;
             updateGUIState();
 
-        	if (app.loggedIn)
+        	
+            if (app.loggedIn && characterName!=null)
+        	{
+            	app.showNewCharacterPage();
+        	}
+            else if (app.loggedIn)
     		{
         		app.showLaunchPage();
     		}

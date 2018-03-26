@@ -73,9 +73,15 @@ var app = {
 						app.serverOnline = true;
 						app.loggedIn = data.loggedIn;
 						app.verifyCode = data.verifyCode;
+						app.characterName = data.characterName;
+						
 				        updateGUIState();
 						
-						if (app.loggedIn)
+				        if (app.loggedIn && app.characterName==null)
+				        {
+				        	app.showNewCharacterPage();
+				        }
+				        else if (app.loggedIn)
 						{
 							app.showLaunchPage();
 						}
@@ -135,7 +141,7 @@ var app = {
             updateGUIState();
 
         	
-            if (app.loggedIn && characterName!=null)
+            if (app.loggedIn && characterName==null)
         	{
             	app.showNewCharacterPage();
         	}
@@ -178,7 +184,11 @@ var app = {
         	app.verifyCode = data.verifyCode;
             updateGUIState();
         	
-        	if (app.loggedIn)
+            if (app.loggedIn && characterName==null)
+        	{
+            	app.showNewCharacterPage();
+        	}
+            else if (app.loggedIn)
     		{
         		app.showLaunchPage();
     		}
@@ -215,11 +225,20 @@ var app = {
         	app.loggedInEmail = data.loggedInEmail;
     		app.characterName = data.characterName;
         	app.verifyCode = data.verifyCode;
+        	
             updateGUIState();
         	
-        	if (app.loggedIn)
+            if (app.loggedIn && characterName==null)
+        	{
+            	app.showNewCharacterPage();
+        	}
+            else if (app.loggedIn)
     		{
         		app.showLaunchPage();
+    		}
+        	else
+    		{
+        		app.showLoginPage();
     		}
         })
         .fail(function(data)

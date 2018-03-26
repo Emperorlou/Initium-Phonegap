@@ -141,7 +141,7 @@ var app = {
             updateGUIState();
 
         	
-            if (app.loggedIn && characterName==null)
+            if (app.loggedIn && app.characterName==null)
         	{
             	app.showNewCharacterPage();
         	}
@@ -184,7 +184,7 @@ var app = {
         	app.verifyCode = data.verifyCode;
             updateGUIState();
         	
-            if (app.loggedIn && characterName==null)
+            if (app.loggedIn && app.characterName==null)
         	{
             	app.showNewCharacterPage();
         	}
@@ -228,7 +228,7 @@ var app = {
         	
             updateGUIState();
         	
-            if (app.loggedIn && characterName==null)
+            if (app.loggedIn && app.characterName==null)
         	{
             	app.showNewCharacterPage();
         	}

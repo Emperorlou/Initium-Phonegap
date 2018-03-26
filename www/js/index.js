@@ -257,9 +257,10 @@ var app = {
     
     doNewCharacter: function()
     {
+    	if (app.verifyCode==null) $("#new-character-error-message").text("You have to be logged in first.");
     	clearErrorMessages();
     	var name = $("#new-character-name").val();
-        $.post("https://www.playinitium.com/ServletUserControl?suctype=newCharacter", {suctype:"newCharacter", name:name, ajax:true})
+        $.post("https://www.playinitium.com/ServletUserControl?suctype=newcharacter", {suctype:"newcharacter", name:name, v:app.verifyCode, ajax:true})
         .done(function(data)
         {
       	  	if (data.error)

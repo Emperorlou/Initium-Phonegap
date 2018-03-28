@@ -72,6 +72,7 @@ var app = {
 						app.internetOnline = true;
 						app.serverOnline = true;
 						app.loggedIn = data.loggedIn;
+						app.loggedInEmail = data.loggedInEmail;
 						app.verifyCode = data.verifyCode;
 						app.characterName = data.characterName;
 						

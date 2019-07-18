@@ -72,6 +72,7 @@ var app = {
 						app.internetOnline = true;
 						app.serverOnline = true;
 						app.loggedIn = data.loggedIn;
+						app.loggedInEmail = data.loggedInEmail;
 						app.verifyCode = data.verifyCode;
 						app.characterName = data.characterName;
 						
@@ -141,7 +142,7 @@ var app = {
             updateGUIState();
 
         	
-            if (app.loggedIn && characterName==null)
+            if (app.loggedIn && app.characterName==null)
         	{
             	app.showNewCharacterPage();
         	}
@@ -184,7 +185,7 @@ var app = {
         	app.verifyCode = data.verifyCode;
             updateGUIState();
         	
-            if (app.loggedIn && characterName==null)
+            if (app.loggedIn && app.characterName==null)
         	{
             	app.showNewCharacterPage();
         	}
@@ -228,7 +229,7 @@ var app = {
         	
             updateGUIState();
         	
-            if (app.loggedIn && characterName==null)
+            if (app.loggedIn && app.characterName==null)
         	{
             	app.showNewCharacterPage();
         	}

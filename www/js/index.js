@@ -210,7 +210,7 @@ var app = {
     	var characterName = $("#signup-characterName").val();
     	var email = $("#signup-email").val();
     	var password = $("#signup-password").val();
-        $.post("https://www.playinitium.com/ServletUserControl?suctype=signup", {suctype:"signup", characterName:characterName, email:email, password:password, ajax:true})
+        $.post("https://www.playinitium.com/ServletUserControl?suctype=signup-pg", {suctype:"signup-pg", characterName:characterName, email:email, password:password, ajax:true})
         .done(function(data)
         {
       	  	if (data.error)
